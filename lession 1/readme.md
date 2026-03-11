@@ -649,6 +649,19 @@ public class Main {
 
 ---
 
+## Câu hỏi
+
+1. Tại sao không dùng `static` thay cho Bean / DI?
+2. `@Autowired` trên field hoạt động được, sao lại không khuyến nghị?
+3. Nếu có 2 Bean cùng implement 1 interface mà không dùng `@Primary` hay `@Qualifier` thì sao?
+4. Bean mặc định là Singleton — vậy nếu 2 thread cùng truy cập 1 Bean thì có lỗi không?
+5. `new` một object có `@Component` thì Spring có quản lý nó không?
+6. Abstract class có thể là Bean không?
+7. Interface có được đánh dấu `@Component` không?
+8. Khi nào dùng `@Bean` thay vì `@Component`?
+
+---
+
 ## Bài tập thực hành
 
 1. **Cài đặt môi trường:** Cài JDK 21, cấu hình JAVA_HOME, cài Maven, kiểm tra bằng terminal
