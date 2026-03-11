@@ -333,7 +333,7 @@ mvn -version
 ### 1. Spring Framework là gì?
 
 - Spring là một **Java framework** siêu to và khổng lồ, được chia thành nhiều module, mỗi module làm một chức năng riêng
-- Spring được xây dựng dựa trên 2 khái niệm nền tảng: **Dependency Injection** và **AOP** (Aspect Oriented Programming)
+- Spring được xây dựng dựa trên 2 khái niệm nền tảng: **Dependency Injection** và **[AOP](https://docs.spring.io/spring-framework/reference/core/aop.html)** (Aspect Oriented Programming)
 
 ### 2. Spring Boot là gì?
 
