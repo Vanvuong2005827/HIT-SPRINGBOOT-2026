@@ -631,7 +631,7 @@ public class Main {
 |---|---|
 | `@Component` | Đánh dấu class là một Bean, Spring sẽ tự tạo instance và đưa vào Container |
 | `@Autowired` | Yêu cầu Spring tự inject dependency phù hợp |
-| `@Qualifier("name")` | Chỉ định rõ Bean nào khi có nhiều Bean cùng loại |
+| `@Qualifier("name")` (ưu tiên) | Chỉ định rõ Bean nào khi có nhiều Bean cùng loại |
 | `@Primary` | Đánh dấu Bean ưu tiên khi có nhiều Bean cùng loại |
 
 ---
