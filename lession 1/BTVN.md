@@ -1,4 +1,4 @@
-# 📝 BTVN Buổi 1 — DI & IoC
+# 📝 BTVN Buổi 1
 
 ## Đề bài: Hệ thống Thanh toán Đơn hàng
 
@@ -14,5 +14,61 @@ Xây dựng module xử lý đơn hàng cho ứng dụng e-commerce, áp dụng 
 - Trong `main()`: tạo nhiều `OrderService` với các tổ hợp payment + notification khác nhau, chứng minh có thể **đổi implementation mà không sửa `OrderService`**
 - Chuyển sang **Spring IoC**: dùng `@Component`, `@Primary`/`@Qualifier`, `@Autowired` để Spring tự inject dependency
 
+### Class Diagram:
+
+```mermaid
+classDiagram
+    class PaymentMethod {
+        <<interface>>
+        +pay(amount: double) void
+        +getMethodName() String
+    }
+    
+    class MoMoPayment {
+        +pay(amount: double) void
+        +getMethodName() String
+    }
+    
+    class BankTransferPayment {
+        +pay(amount: double) void
+        +getMethodName() String
+    }
+    
+    class CashPayment {
+        +pay(amount: double) void
+        +getMethodName() String
+    }
+    
+    PaymentMethod <|.. MoMoPayment
+    PaymentMethod <|.. BankTransferPayment
+    PaymentMethod <|.. CashPayment
+    
+    class NotificationService {
+        <<interface>>
+        +sendNotification(to: String, message: String) void
+    }
+    
+    class EmailNotification {
+        +sendNotification(to: String, message: String) void
+    }
+    
+    class SmsNotification {
+        +sendNotification(to: String, message: String) void
+    }
+    
+    NotificationService <|.. EmailNotification
+    NotificationService <|.. SmsNotification
+    
+    class OrderService {
+        -paymentMethod: PaymentMethod
+        -notificationService: NotificationService
+        +OrderService(paymentMethod: PaymentMethod, notificationService: NotificationService)
+        +processOrder(customer: String, product: String, amount: double) void
+    }
+    
+    OrderService --> PaymentMethod : dependency injection
+    OrderService --> NotificationService : dependency injection
+```
+
 ### Nộp bài:
-- Push lên GitHub, hạn nộp buổi học tiếp theo
+- Push lên GitHub, hạn nộp 23h00p 19/03/2026
