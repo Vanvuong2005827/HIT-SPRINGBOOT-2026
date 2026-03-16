@@ -1,4 +1,4 @@
-# 📝 BTVN Buổi 1 — DI & IoC
+# 📝 BTVN Buổi 1
 
 ## Đề bài: Hệ thống Thanh toán Đơn hàng
 
