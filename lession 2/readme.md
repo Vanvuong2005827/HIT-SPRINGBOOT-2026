@@ -345,12 +345,6 @@ Server xử lý xong sẽ trả về **HTTP Response**:
 ### 4. Các phương thức HTTP (HTTP Methods)
 
 ![HTTP Methods](./assets/http-methods-overview.svg)
-|---|---|---|---|---|
-| **GET** | Lấy dữ liệu | ❌ Không | ✅ Có | Lấy danh sách user |
-| **POST** | Tạo mới dữ liệu | ✅ Có | ❌ Không | Tạo user mới |
-| **PUT** | Cập nhật **toàn bộ** dữ liệu | ✅ Có | ✅ Có | Update toàn bộ thông tin user |
-| **PATCH** | Cập nhật **một phần** dữ liệu | ✅ Có | ✅ Có | Update email của user |
-| **DELETE** | Xóa dữ liệu | ❌ Không | ✅ Có | Xóa user |
 
 > **Idempotent** (lũy đẳng): Gọi nhiều lần cho cùng kết quả. `POST` không idempotent vì gọi 2 lần sẽ tạo 2 bản ghi.
 
@@ -1253,7 +1247,7 @@ Tạo REST API quản lý **Sản phẩm (Product)** với các chức năng:
 - `DELETE /api/products/{id}` — Xóa sản phẩm
 
 **Yêu cầu:**
-- Sử dụng đúng HTTP Status Code (200, 201, 204, 404)
+- Sử dụng đúng  Status Code (200, 201, 204, 404)
 - Sử dụng `ResponseEntity` để trả response
 - Tạm thời lưu dữ liệu trong `List<Product>` (chưa cần database)
 
