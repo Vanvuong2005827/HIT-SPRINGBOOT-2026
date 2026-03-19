@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">What is API</title>
+  <desc id="desc">Diagram showing how API works as an intermediary between Client and Server, using a restaurant analogy</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .label { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .sublabel { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .text { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .text-sm { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #64748b; }
+      .mono { font: 600 14px 'Consolas', monospace; fill: #334155; }
+      .arrow-label { font: 600 15px 'Segoe UI', Arial, sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <marker id="arrowR" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowL" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto">
+      <path d="M10,0 L0,5 L10,10 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">API (Application Programming Interface)</text>
+  <text x="600" y="65" text-anchor="middle" class="subtitle">Giao dien cho phep cac phan mem giao tiep voi nhau</text>
+
+  <!-- === ROW 1: Technical View === -->
+  <text x="40" y="110" class="text" font-weight="700" fill="#0f172a">Trong lap trinh web:</text>
+
+  <!-- Client -->
+  <rect x="60" y="130" width="220" height="120" rx="16" fill="#3b82f6"/>
+  <text x="170" y="175" text-anchor="middle" class="label">Client</text>
+  <text x="170" y="200" text-anchor="middle" class="sublabel">Browser, Mobile App</text>
+  <text x="170" y="220" text-anchor="middle" class="sublabel">React, Vue, Flutter</text>
+
+  <!-- Arrow Client → API -->
+  <line x1="290" y1="175" x2="410" y2="175" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrowR)"/>
+  <text x="350" y="165" text-anchor="middle" class="arrow-label" fill="#3b82f6">Request</text>
+  <text x="350" y="198" text-anchor="middle" class="mono">GET /api/users</text>
+
+  <!-- API -->
+  <rect x="420" y="130" width="220" height="120" rx="16" fill="#8b5cf6"/>
+  <text x="530" y="175" text-anchor="middle" class="label">REST API</text>
+  <text x="530" y="200" text-anchor="middle" class="sublabel">Spring Boot</text>
+  <text x="530" y="220" text-anchor="middle" class="sublabel">Controller + Service</text>
+
+  <!-- Arrow API → Server -->
+  <line x1="650" y1="175" x2="770" y2="175" stroke="#8b5cf6" stroke-width="3" marker-end="url(#arrowR)"/>
+  <text x="710" y="165" text-anchor="middle" class="arrow-label" fill="#8b5cf6">Query</text>
+  <text x="710" y="198" text-anchor="middle" class="mono">SELECT * FROM users</text>
+
+  <!-- Database -->
+  <rect x="780" y="130" width="220" height="120" rx="16" fill="#0ea5e9"/>
+  <text x="890" y="175" text-anchor="middle" class="label">Database</text>
+  <text x="890" y="200" text-anchor="middle" class="sublabel">MySQL, PostgreSQL</text>
+  <text x="890" y="220" text-anchor="middle" class="sublabel">MongoDB, Redis</text>
+
+  <!-- Return arrows -->
+  <line x1="770" y1="215" x2="650" y2="215" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowL)"/>
+  <line x1="410" y1="215" x2="290" y2="215" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowL)"/>
+  <text x="350" y="240" text-anchor="middle" class="arrow-label" fill="#16a34a">JSON Response</text>
+  <text x="710" y="240" text-anchor="middle" class="arrow-label" fill="#16a34a">Data</text>
+
+  <!-- === ROW 2: Restaurant Analogy === -->
+  <line x1="40" y1="280" x2="1160" y2="280" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="40" y="310" class="text" font-weight="700" fill="#0f172a">Vi du thuc te (nha hang):</text>
+
+  <!-- Customer -->
+  <rect x="60" y="330" width="220" height="120" rx="16" fill="#f59e0b"/>
+  <text x="170" y="375" text-anchor="middle" class="label">Khach hang</text>
+  <text x="170" y="400" text-anchor="middle" class="sublabel">(Client)</text>
+  <text x="170" y="420" text-anchor="middle" class="sublabel">Goi mon an</text>
+
+  <!-- Arrow -->
+  <line x1="290" y1="380" x2="410" y2="380" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrowR)"/>
+  <text x="350" y="370" text-anchor="middle" class="arrow-label" fill="#f59e0b">Goi mon</text>
+
+  <!-- Waiter = API -->
+  <rect x="420" y="330" width="220" height="120" rx="16" fill="#ec4899"/>
+  <text x="530" y="370" text-anchor="middle" class="label">Phuc vu</text>
+  <text x="530" y="395" text-anchor="middle" class="sublabel">(API)</text>
+  <text x="530" y="415" text-anchor="middle" class="sublabel">Nhan yeu cau</text>
+  <text x="530" y="435" text-anchor="middle" class="sublabel">va chuyen cho bep</text>
+
+  <!-- Arrow -->
+  <line x1="650" y1="380" x2="770" y2="380" stroke="#ec4899" stroke-width="3" marker-end="url(#arrowR)"/>
+  <text x="710" y="370" text-anchor="middle" class="arrow-label" fill="#ec4899">Chuyen don</text>
+
+  <!-- Kitchen = Server -->
+  <rect x="780" y="330" width="220" height="120" rx="16" fill="#ef4444"/>
+  <text x="890" y="375" text-anchor="middle" class="label">Bep</text>
+  <text x="890" y="400" text-anchor="middle" class="sublabel">(Server / Database)</text>
+  <text x="890" y="420" text-anchor="middle" class="sublabel">Xu ly va nau mon</text>
+
+  <!-- Return arrows -->
+  <line x1="770" y1="420" x2="650" y2="420" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowL)"/>
+  <line x1="410" y1="420" x2="290" y2="420" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowL)"/>
+  <text x="530" y="475" text-anchor="middle" class="arrow-label" fill="#16a34a">Mang do an ve cho khach (Response)</text>
+
+  <!-- Bottom note -->
+  <rect x="60" y="490" width="940" height="24" rx="6" fill="#f1f5f9"/>
+  <text x="530" y="508" text-anchor="middle" class="text-sm">Khach hang khong can biet bep nau nhu the nao — chi can goi mon qua phuc vu (API) va nhan ket qua</text>
+</svg>

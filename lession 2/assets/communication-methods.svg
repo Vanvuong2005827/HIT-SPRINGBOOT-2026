@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="420" viewBox="0 0 1100 420" role="img" aria-labelledby="title desc">
+  <title id="title">Communication Methods Comparison</title>
+  <desc id="desc">Diagram comparing REST API, WebSocket, GraphQL, gRPC, and Message Queue</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .card-desc { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .card-use { font: 500 12px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .tag { font: 700 11px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .popular { font: 700 14px 'Segoe UI', Arial, sans-serif; fill: #16a34a; }
+      .vs-label { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .arrow-text { font: 500 12px 'Consolas', monospace; fill: #475569; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="420" fill="url(#bg)" rx="12"/>
+  <text x="550" y="38" text-anchor="middle" class="title">Cac cach giao tiep giua Client va Server</text>
+
+  <!-- Card 1: REST API -->
+  <rect x="30" y="60" width="195" height="200" rx="14" fill="#3b82f6"/>
+  <text x="127" y="92" text-anchor="middle" class="card-title">REST API</text>
+  <line x1="55" y1="102" x2="200" y2="102" stroke="#60a5fa" stroke-width="1"/>
+  <text x="127" y="125" text-anchor="middle" class="card-desc">Request / Response</text>
+  <text x="127" y="145" text-anchor="middle" class="card-desc">qua HTTP</text>
+  <text x="127" y="170" text-anchor="middle" class="card-desc">Tra ve JSON</text>
+  <text x="127" y="195" text-anchor="middle" class="card-desc">GET, POST, PUT, DELETE</text>
+  <!-- Popular tag -->
+  <rect x="55" y="215" width="145" height="24" rx="8" fill="#dcfce7"/>
+  <text x="127" y="232" text-anchor="middle" class="popular">Pho bien nhat</text>
+
+  <!-- Card 2: WebSocket -->
+  <rect x="245" y="60" width="195" height="200" rx="14" fill="#8b5cf6"/>
+  <text x="342" y="92" text-anchor="middle" class="card-title">WebSocket</text>
+  <line x1="270" y1="102" x2="415" y2="102" stroke="#a78bfa" stroke-width="1"/>
+  <text x="342" y="125" text-anchor="middle" class="card-desc">Ket noi 2 chieu</text>
+  <text x="342" y="145" text-anchor="middle" class="card-desc">Real-time</text>
+  <text x="342" y="170" text-anchor="middle" class="card-desc">Server chu dong</text>
+  <text x="342" y="190" text-anchor="middle" class="card-desc">gui du lieu</text>
+
+  <!-- Card 3: GraphQL -->
+  <rect x="460" y="60" width="195" height="200" rx="14" fill="#ec4899"/>
+  <text x="557" y="92" text-anchor="middle" class="card-title">GraphQL</text>
+  <line x1="485" y1="102" x2="630" y2="102" stroke="#f472b6" stroke-width="1"/>
+  <text x="557" y="125" text-anchor="middle" class="card-desc">Client tu chon</text>
+  <text x="557" y="145" text-anchor="middle" class="card-desc">du lieu can lay</text>
+  <text x="557" y="170" text-anchor="middle" class="card-desc">1 endpoint duy nhat</text>
+  <text x="557" y="190" text-anchor="middle" class="card-desc">Tranh over-fetching</text>
+
+  <!-- Card 4: gRPC -->
+  <rect x="675" y="60" width="195" height="200" rx="14" fill="#f59e0b"/>
+  <text x="772" y="92" text-anchor="middle" class="card-title">gRPC</text>
+  <line x1="700" y1="102" x2="845" y2="102" stroke="#fbbf24" stroke-width="1"/>
+  <text x="772" y="125" text-anchor="middle" class="card-desc">Giao tiep binary</text>
+  <text x="772" y="145" text-anchor="middle" class="card-desc">(Protocol Buffers)</text>
+  <text x="772" y="170" text-anchor="middle" class="card-desc">Hieu nang cao</text>
+  <text x="772" y="190" text-anchor="middle" class="card-desc">Microservices noi bo</text>
+
+  <!-- Card 5: Message Queue -->
+  <rect x="890" y="60" width="195" height="200" rx="14" fill="#0ea5e9"/>
+  <text x="987" y="92" text-anchor="middle" class="card-title">Message Queue</text>
+  <line x1="915" y1="102" x2="1060" y2="102" stroke="#38bdf8" stroke-width="1"/>
+  <text x="987" y="125" text-anchor="middle" class="card-desc">Bat dong bo</text>
+  <text x="987" y="145" text-anchor="middle" class="card-desc">qua broker</text>
+  <text x="987" y="170" text-anchor="middle" class="card-desc">RabbitMQ, Kafka</text>
+  <text x="987" y="190" text-anchor="middle" class="card-desc">Xu ly nen, event-driven</text>
+
+  <!-- Use cases row -->
+  <text x="40" y="295" class="vs-label" font-weight="700">Khi nao dung?</text>
+
+  <rect x="30" y="305" width="195" height="50" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="127" y="325" text-anchor="middle" class="card-use">CRUD, web app,</text>
+  <text x="127" y="342" text-anchor="middle" class="card-use">mobile app</text>
+
+  <rect x="245" y="305" width="195" height="50" rx="8" fill="#f5f3ff" stroke="#ddd6fe"/>
+  <text x="342" y="325" text-anchor="middle" class="card-use">Chat, game, stock</text>
+  <text x="342" y="342" text-anchor="middle" class="card-use">ticker, notification</text>
+
+  <rect x="460" y="305" width="195" height="50" rx="8" fill="#fdf2f8" stroke="#fbcfe8"/>
+  <text x="557" y="325" text-anchor="middle" class="card-use">Complex query,</text>
+  <text x="557" y="342" text-anchor="middle" class="card-use">mobile data saving</text>
+
+  <rect x="675" y="305" width="195" height="50" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="772" y="325" text-anchor="middle" class="card-use">Service-to-service</text>
+  <text x="772" y="342" text-anchor="middle" class="card-use">internal comms</text>
+
+  <rect x="890" y="305" width="195" height="50" rx="8" fill="#ecfeff" stroke="#a5f3fc"/>
+  <text x="987" y="325" text-anchor="middle" class="card-use">Background jobs,</text>
+  <text x="987" y="342" text-anchor="middle" class="card-use">event processing</text>
+
+  <!-- Bottom comparison -->
+  <rect x="30" y="375" width="1055" height="34" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="550" y="397" text-anchor="middle" class="vs-label">REST API la lua chon mac dinh. Cac cach khac dung khi co yeu cau dac biet (real-time, hieu nang, bat dong bo).</text>
+</svg>

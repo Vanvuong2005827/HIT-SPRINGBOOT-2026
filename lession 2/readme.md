@@ -222,6 +222,8 @@ spring.application.name=demo        # Tên ứng dụng
 - API giống như **người phục vụ trong nhà hàng**: bạn (client) gọi món → phục vụ (API) nhận yêu cầu → chuyển cho bếp (server) xử lý → mang đồ ăn (response) về cho bạn
 - Trong phát triển web, **API** thường chỉ **Web API** — cho phép frontend giao tiếp với backend qua mạng
 
+![What is API](./assets/what-is-api.svg)
+
 ### 2. REST API
 
 - **REST** (Representational State Transfer) là kiến trúc phổ biến nhất để thiết kế Web API
@@ -253,6 +255,8 @@ Client nhận JSON → hiển thị lên giao diện
 ### 3. Các cách giao tiếp khác ngoài REST API
 
 REST API không phải cách duy nhất để client và server giao tiếp. Tùy bài toán, có thể dùng:
+
+![Communication Methods](./assets/communication-methods.svg)
 
 | Cách giao tiếp | Mô tả | Khi nào dùng? |
 |---|---|---|
@@ -730,17 +734,55 @@ public User updateUser(@PathVariable Long id,
 }
 ```
 
-### 4. Bảng so sánh 3 loại dữ liệu
+### 4. @ModelAttribute — Dữ liệu từ Form (form-urlencoded)
 
-| Tiêu chí | @PathVariable | @RequestParam | @RequestBody |
-|---|---|---|---|
-| **Vị trí dữ liệu** | Trên URL path `/users/{id}` | Sau dấu `?` trên URL | Trong body request |
-| **Kiểu dữ liệu** | Đơn giản (String, Long...) | Đơn giản (String, int...) | Phức tạp (Object, JSON) |
-| **HTTP Method** | Tất cả | Thường GET | POST, PUT, PATCH |
-| **Bắt buộc?** | Mặc định: Có | Có thể tuỳ chọn (`required = false`) | Mặc định: Có |
-| **Dùng cho** | ID, slug, resource identifier | Filter, search, pagination | Tạo/cập nhật dữ liệu |
+- Lấy dữ liệu từ **HTML form** (Content-Type: `application/x-www-form-urlencoded` hoặc `multipart/form-data`)
+- Spring tự động bind các field của form vào Java Object theo tên field
+- Thường dùng khi làm **server-side rendering** (Thymeleaf) hoặc nhận dữ liệu từ form HTML
 
-### 5. Kết hợp cả 3 trong 1 request
+```java
+// DTO
+public class RegisterForm {
+    private String username;
+    private String email;
+    private String password;
+
+    // getters, setters
+}
+
+// POST /register
+// Content-Type: application/x-www-form-urlencoded
+// Body: username=nguyenvana&email=a@example.com&password=123456
+@PostMapping("/register")
+public String register(@ModelAttribute RegisterForm form) {
+    // form.getUsername() = "nguyenvana"
+    // form.getEmail() = "a@example.com"
+    userService.register(form);
+    return "redirect:/login";
+}
+```
+
+**So sánh `@ModelAttribute` vs `@RequestBody`:**
+
+| Tiêu chí | @ModelAttribute | @RequestBody |
+|---|---|---|
+| **Content-Type** | `application/x-www-form-urlencoded` | `application/json` |
+| **Nguồn dữ liệu** | HTML form, query params | JSON body |
+| **Dùng cho** | Server-side rendering (Thymeleaf) | REST API (React, Mobile) |
+| **Binding** | Theo tên field | Jackson deserialization |
+
+> **Quy tắc:** Làm REST API → dùng `@RequestBody`. Làm web với Thymeleaf/JSP → dùng `@ModelAttribute`.
+
+### 5. Bảng so sánh 4 cách nhận dữ liệu
+
+| Tiêu chí | @PathVariable | @RequestParam | @RequestBody | @ModelAttribute |
+|---|---|---|---|---|
+| **Vị trí dữ liệu** | Trên URL path `/users/{id}` | Sau dấu `?` trên URL | Trong body (JSON) | Trong body (form) hoặc query |
+| **Kiểu dữ liệu** | Đơn giản (String, Long...) | Đơn giản (String, int...) | Phức tạp (Object, JSON) | Object (form fields) |
+| **HTTP Method** | Tất cả | Thường GET | POST, PUT, PATCH | POST (form submit) |
+| **Dùng cho** | ID, slug | Filter, search, pagination | REST API (JSON) | HTML form (Thymeleaf) |
+
+### 6. Kết hợp nhiều annotation trong 1 request
 
 ```java
 // PUT /api/users/42?notify=true
