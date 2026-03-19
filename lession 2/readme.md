@@ -1306,3 +1306,42 @@ Tạo một Bean `AppStartupService` gồm:
 - Tìm hiểu về **DTO (Data Transfer Object)** pattern — tại sao không nên dùng Entity trực tiếp trong Controller?
 - Tìm hiểu về **@RequestHeader** và **@CookieValue** — 2 cách nhận dữ liệu bổ sung
 - Tìm hiểu **@Valid** và **Bean Validation** — validate dữ liệu đầu vào (`@NotNull`, `@Size`, `@Email`...)
+
+---
+
+## Tài liệu tham khảo
+
+### Spring Official Docs
+
+- [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [Spring Web MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
+- [Spring IoC Container](https://docs.spring.io/spring-framework/reference/core/beans.html)
+- [Bean Scopes](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html)
+
+### Baeldung (English)
+
+- [Spring @RequestMapping](https://www.baeldung.com/spring-requestmapping)
+- [Spring @PathVariable](https://www.baeldung.com/spring-pathvariable)
+- [Spring @RequestParam](https://www.baeldung.com/spring-request-param)
+- [Spring @RequestBody](https://www.baeldung.com/spring-request-response-body)
+- [Spring @ModelAttribute](https://www.baeldung.com/spring-mvc-and-the-modelattribute-annotation)
+- [Spring Bean Scopes](https://www.baeldung.com/spring-bean-scopes)
+- [Spring Bean Lifecycle](https://www.baeldung.com/spring-postconstruct-predestroy)
+- [Spring @Component vs @Bean](https://www.baeldung.com/spring-component-annotation)
+- [HTTP Status Codes](https://www.baeldung.com/cs/http-status-codes)
+
+### Viblo (Vietnamese)
+
+- [Tổng quan về Spring Boot](https://viblo.asia/p/tong-quan-ve-spring-boot-maGK7mvBlj2)
+- [HTTP Request Methods](https://viblo.asia/p/tim-hieu-ve-http-request-methods-3P0lPnvp5ox)
+- [REST API Best Practices](https://viblo.asia/p/rest-api-best-practices-YWOZrp8rKQ0)
+- [Spring Bean Lifecycle](https://viblo.asia/p/vong-doi-cua-bean-trong-spring-OeVKBg4JKkW)
+- [Dependency Injection trong Spring](https://viblo.asia/p/dependency-injection-trong-spring-Ljy5VYoGKra)
+
+### Khác
+
+- [MDN Web Docs — HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+- [HTTP Status Codes — httpstatuses.io](https://httpstatuses.io/)
+- [Postman Learning Center](https://learning.postman.com/docs/getting-started/introduction/)
+- [Spring Initializr](https://start.spring.io/)
+
