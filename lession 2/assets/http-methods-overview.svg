@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">HTTP Methods Overview</title>
+  <desc id="desc">Comparison of common HTTP methods: GET, POST, PUT, PATCH, DELETE.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .head { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .cell { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .method { font: 700 22px 'Consolas', 'Courier New', monospace; fill: #111827; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <text x="600" y="56" text-anchor="middle" class="title">HTTP Methods</text>
+
+  <rect x="80" y="100" width="1040" height="70" rx="14" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="160" y="145" text-anchor="middle" class="head">Method</text>
+  <text x="430" y="145" text-anchor="middle" class="head">Purpose</text>
+  <text x="690" y="145" text-anchor="middle" class="head">Has Body?</text>
+  <text x="970" y="145" text-anchor="middle" class="head">Idempotent?</text>
+
+  <rect x="80" y="182" width="1040" height="58" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="160" y="219" text-anchor="middle" class="method">GET</text>
+  <text x="430" y="219" text-anchor="middle" class="cell">Read data</text>
+  <text x="690" y="219" text-anchor="middle" class="cell">No</text>
+  <text x="970" y="219" text-anchor="middle" class="cell">Yes</text>
+
+  <rect x="80" y="250" width="1040" height="58" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="160" y="287" text-anchor="middle" class="method">POST</text>
+  <text x="430" y="287" text-anchor="middle" class="cell">Create data</text>
+  <text x="690" y="287" text-anchor="middle" class="cell">Yes</text>
+  <text x="970" y="287" text-anchor="middle" class="cell">No</text>
+
+  <rect x="80" y="318" width="1040" height="58" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="160" y="355" text-anchor="middle" class="method">PUT</text>
+  <text x="430" y="355" text-anchor="middle" class="cell">Replace full resource</text>
+  <text x="690" y="355" text-anchor="middle" class="cell">Yes</text>
+  <text x="970" y="355" text-anchor="middle" class="cell">Yes</text>
+
+  <rect x="80" y="386" width="1040" height="58" rx="10" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="160" y="423" text-anchor="middle" class="method">PATCH</text>
+  <text x="430" y="423" text-anchor="middle" class="cell">Update partial resource</text>
+  <text x="690" y="423" text-anchor="middle" class="cell">Yes</text>
+  <text x="970" y="423" text-anchor="middle" class="cell">Yes</text>
+
+  <rect x="80" y="454" width="1040" height="58" rx="10" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="160" y="491" text-anchor="middle" class="method">DELETE</text>
+  <text x="430" y="491" text-anchor="middle" class="cell">Delete resource</text>
+  <text x="690" y="491" text-anchor="middle" class="cell">No</text>
+  <text x="970" y="491" text-anchor="middle" class="cell">Yes</text>
+</svg>

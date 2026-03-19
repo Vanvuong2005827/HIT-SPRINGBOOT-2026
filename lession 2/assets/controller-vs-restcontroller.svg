@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Controller vs RestController</title>
+  <desc id="desc">Comparison between Spring MVC Controller returning view and RestController returning JSON.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .panelTitle { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .text { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .tag { font: 700 18px 'Consolas', 'Courier New', monospace; fill: #111827; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" fill="#f8fafc"/>
+  <text x="600" y="55" text-anchor="middle" class="title">@Controller vs @RestController</text>
+
+  <rect x="70" y="100" width="500" height="380" rx="18" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="320" y="150" text-anchor="middle" class="panelTitle">@Controller</text>
+  <rect x="120" y="185" width="120" height="56" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="180" y="220" text-anchor="middle" class="text">Request</text>
+  <rect x="270" y="185" width="120" height="56" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="330" y="220" text-anchor="middle" class="text">Method</text>
+  <rect x="420" y="185" width="120" height="56" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="480" y="220" text-anchor="middle" class="text">View</text>
+  <line x1="242" y1="213" x2="268" y2="213" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="392" y1="213" x2="418" y2="213" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="320" y="288" text-anchor="middle" class="tag">return "home";</text>
+  <text x="320" y="326" text-anchor="middle" class="text">Used for server-side rendering</text>
+  <text x="320" y="358" text-anchor="middle" class="text">Response: HTML page</text>
+
+  <rect x="630" y="100" width="500" height="380" rx="18" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="880" y="150" text-anchor="middle" class="panelTitle">@RestController</text>
+  <rect x="680" y="185" width="120" height="56" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="740" y="220" text-anchor="middle" class="text">Request</text>
+  <rect x="830" y="185" width="120" height="56" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="890" y="220" text-anchor="middle" class="text">Method</text>
+  <rect x="980" y="185" width="120" height="56" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+  <text x="1040" y="220" text-anchor="middle" class="text">JSON</text>
+  <line x1="802" y1="213" x2="828" y2="213" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="952" y1="213" x2="978" y2="213" stroke="#334155" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="880" y="288" text-anchor="middle" class="tag">return userService.findAll();</text>
+  <text x="880" y="326" text-anchor="middle" class="text">Used for REST APIs</text>
+  <text x="880" y="358" text-anchor="middle" class="text">Response: JSON or XML</text>
+</svg>

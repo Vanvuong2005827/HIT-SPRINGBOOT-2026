@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">HTTP Request and Response Flow</title>
+  <desc id="desc">Diagram showing request flow from client to server and response back to client.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .label { font: 700 26px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .text { font: 500 19px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .mono { font: 500 17px 'Consolas', 'Courier New', monospace; fill: #334155; }
+      .chip { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <marker id="arrowRight" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#1d4ed8"/>
+    </marker>
+    <marker id="arrowLeft" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M12,0 L0,6 L12,12 Z" fill="#0f766e"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#bg)"/>
+  <text x="600" y="52" text-anchor="middle" class="title">HTTP Request and Response</text>
+
+  <rect x="90" y="130" width="270" height="230" rx="20" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <text x="225" y="188" text-anchor="middle" class="label">Client</text>
+  <text x="225" y="220" text-anchor="middle" class="text">Browser / Mobile App</text>
+  <text x="225" y="248" text-anchor="middle" class="text">Postman / Frontend</text>
+
+  <rect x="840" y="130" width="270" height="230" rx="20" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <text x="975" y="188" text-anchor="middle" class="label">Server</text>
+  <text x="975" y="220" text-anchor="middle" class="text">Spring Boot API</text>
+  <text x="975" y="248" text-anchor="middle" class="text">Business Logic + DB</text>
+
+  <line x1="380" y1="200" x2="820" y2="200" stroke="#1d4ed8" stroke-width="5" marker-end="url(#arrowRight)"/>
+  <text x="600" y="176" text-anchor="middle" class="label" fill="#1d4ed8">HTTP Request</text>
+  <text x="600" y="230" text-anchor="middle" class="mono">Method, URL, Headers, Body</text>
+
+  <line x1="820" y1="290" x2="380" y2="290" stroke="#0f766e" stroke-width="5" marker-end="url(#arrowLeft)"/>
+  <text x="600" y="272" text-anchor="middle" class="label" fill="#0f766e">HTTP Response</text>
+  <text x="600" y="320" text-anchor="middle" class="mono">Status Code, Headers, Body</text>
+
+  <rect x="450" y="368" width="94" height="34" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="497" y="391" text-anchor="middle" class="chip">Request</text>
+  <rect x="556" y="368" width="112" height="34" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="612" y="391" text-anchor="middle" class="chip">Response</text>
+  <rect x="680" y="368" width="70" height="34" rx="10" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="715" y="391" text-anchor="middle" class="chip">JSON</text>
+</svg>

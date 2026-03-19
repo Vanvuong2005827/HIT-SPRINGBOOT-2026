@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Spring MVC Request Flow</title>
+  <desc id="desc">Diagram showing the complete flow of an HTTP request through Spring Boot MVC architecture</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .sublabel { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .stepnum { font: 800 16px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .desc-text { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .code { font: 600 13px 'Consolas', monospace; fill: #6366f1; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fafafa"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6366f1"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="500" fill="url(#bg)" rx="12"/>
+  <text x="600" y="44" text-anchor="middle" class="title">Luồng xử lý Request trong Spring Boot</text>
+
+  <!-- Client -->
+  <rect x="30" y="160" width="140" height="140" rx="16" fill="#3b82f6"/>
+  <text x="100" y="210" text-anchor="middle" class="label">Client</text>
+  <text x="100" y="235" text-anchor="middle" font-size="12" fill="#dbeafe">Browser</text>
+  <text x="100" y="252" text-anchor="middle" font-size="12" fill="#dbeafe">Postman</text>
+  <text x="100" y="269" text-anchor="middle" font-size="12" fill="#dbeafe">Mobile App</text>
+
+  <!-- Arrow 1: Client → DispatcherServlet -->
+  <line x1="175" y1="210" x2="215" y2="210" stroke="#6366f1" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="195" cy="195" r="12" fill="#ef4444"/>
+  <text x="195" y="200" text-anchor="middle" class="stepnum">1</text>
+
+  <!-- DispatcherServlet -->
+  <rect x="220" y="160" width="165" height="140" rx="16" fill="#8b5cf6"/>
+  <text x="302" y="205" text-anchor="middle" class="label" font-size="15">Dispatcher</text>
+  <text x="302" y="225" text-anchor="middle" class="label" font-size="15">Servlet</text>
+  <text x="302" y="250" text-anchor="middle" font-size="11" fill="#e9d5ff">Front Controller</text>
+  <text x="302" y="267" text-anchor="middle" font-size="11" fill="#e9d5ff">Nhận TẤT CẢ request</text>
+
+  <!-- Arrow 2: DispatcherServlet → HandlerMapping -->
+  <line x1="390" y1="210" x2="430" y2="210" stroke="#6366f1" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="410" cy="195" r="12" fill="#ef4444"/>
+  <text x="410" y="200" text-anchor="middle" class="stepnum">2</text>
+
+  <!-- HandlerMapping -->
+  <rect x="435" y="160" width="165" height="140" rx="16" fill="#0ea5e9"/>
+  <text x="517" y="205" text-anchor="middle" class="label" font-size="15">Handler</text>
+  <text x="517" y="225" text-anchor="middle" class="label" font-size="15">Mapping</text>
+  <text x="517" y="250" text-anchor="middle" font-size="11" fill="#e0f2fe">Tìm Controller</text>
+  <text x="517" y="267" text-anchor="middle" font-size="11" fill="#e0f2fe">phù hợp với URL</text>
+
+  <!-- Arrow 3: HandlerMapping → Controller -->
+  <line x1="605" y1="210" x2="645" y2="210" stroke="#6366f1" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="625" cy="195" r="12" fill="#ef4444"/>
+  <text x="625" y="200" text-anchor="middle" class="stepnum">3</text>
+
+  <!-- Controller -->
+  <rect x="650" y="160" width="165" height="140" rx="16" fill="#16a34a"/>
+  <text x="732" y="205" text-anchor="middle" class="label" font-size="15">Controller</text>
+  <text x="732" y="228" text-anchor="middle" font-size="11" fill="#dcfce7">@RestController</text>
+  <text x="732" y="250" text-anchor="middle" font-size="11" fill="#dcfce7">Gọi Service xử lý</text>
+  <text x="732" y="267" text-anchor="middle" font-size="11" fill="#dcfce7">business logic</text>
+
+  <!-- Arrow 4: Controller → MessageConverter -->
+  <line x1="820" y1="210" x2="860" y2="210" stroke="#6366f1" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="840" cy="195" r="12" fill="#ef4444"/>
+  <text x="840" y="200" text-anchor="middle" class="stepnum">4</text>
+
+  <!-- HttpMessageConverter -->
+  <rect x="865" y="160" width="165" height="140" rx="16" fill="#d97706"/>
+  <text x="947" y="200" text-anchor="middle" class="label" font-size="14">Message</text>
+  <text x="947" y="220" text-anchor="middle" class="label" font-size="14">Converter</text>
+  <text x="947" y="248" text-anchor="middle" font-size="11" fill="#fef3c7">Object → JSON</text>
+  <text x="947" y="265" text-anchor="middle" font-size="11" fill="#fef3c7">(Jackson library)</text>
+
+  <!-- Arrow 5: Return response back -->
+  <line x1="947" y1="305" x2="947" y2="370" stroke="#16a34a" stroke-width="3"/>
+  <line x1="947" y1="370" x2="100" y2="370" stroke="#16a34a" stroke-width="3"/>
+  <line x1="100" y1="370" x2="100" y2="305" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <circle cx="550" cy="355" r="12" fill="#ef4444"/>
+  <text x="550" y="360" text-anchor="middle" class="stepnum">5</text>
+  <text x="550" y="395" text-anchor="middle" font-size="16" font-weight="700" fill="#16a34a">HTTP Response (JSON)</text>
+
+  <!-- Bottom annotations -->
+  <rect x="40" y="425" width="1120" height="60" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="60" y="450" class="code">GET /api/users/1</text>
+  <text x="240" y="450" class="desc-text">→ DispatcherServlet nhận</text>
+  <text x="440" y="450" class="desc-text">→ Tìm @GetMapping("/{id}")</text>
+  <text x="660" y="450" class="desc-text">→ UserController.getUser(1)</text>
+  <text x="900" y="450" class="desc-text">→ User object → JSON</text>
+  <text x="60" y="472" class="code">Response: {"id":1, "name":"Nguyen Van A"}</text>
+  <text x="500" y="472" class="desc-text">← Status: 200 OK</text>
+</svg>

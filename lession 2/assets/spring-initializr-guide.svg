@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Spring Initializr Guide</title>
+  <desc id="desc">Diagram showing how to configure a Spring Boot project on start.spring.io</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 32px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 20px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .text { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .mono { font: 600 15px 'Consolas', 'Courier New', monospace; fill: #334155; }
+      .step { font: 800 22px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+      .chip { font: 600 14px 'Segoe UI', Arial, sans-serif; }
+      .url { font: 600 18px 'Consolas', monospace; fill: #1d4ed8; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="greenBtn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)" rx="12"/>
+  
+  <!-- Header -->
+  <text x="600" y="48" text-anchor="middle" class="title">Spring Initializr — start.spring.io</text>
+  <text x="600" y="76" text-anchor="middle" class="subtitle">Tạo dự án Spring Boot trong 5 bước</text>
+
+  <!-- Step 1: Project -->
+  <rect x="40" y="100" width="340" height="120" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <circle cx="70" cy="130" r="18" fill="#2563eb"/>
+  <text x="70" y="136" text-anchor="middle" class="step">1</text>
+  <text x="100" y="136" class="label">Project</text>
+  <rect x="60" y="150" width="90" height="28" rx="8" fill="#2563eb"/>
+  <text x="105" y="170" text-anchor="middle" class="chip" fill="#fff">✅ Maven</text>
+  <rect x="160" y="150" width="90" height="28" rx="8" fill="#e2e8f0"/>
+  <text x="205" y="170" text-anchor="middle" class="chip" fill="#64748b">Gradle</text>
+  <text x="60" y="206" class="text">→ Chọn Maven (phổ biến nhất)</text>
+
+  <!-- Step 2: Language -->
+  <rect x="40" y="235" width="340" height="120" rx="14" fill="#fef3c7" stroke="#fcd34d" stroke-width="2"/>
+  <circle cx="70" cy="265" r="18" fill="#d97706"/>
+  <text x="70" y="271" text-anchor="middle" class="step">2</text>
+  <text x="100" y="271" class="label">Language</text>
+  <rect x="60" y="285" width="80" height="28" rx="8" fill="#d97706"/>
+  <text x="100" y="305" text-anchor="middle" class="chip" fill="#fff">✅ Java</text>
+  <rect x="150" y="285" width="80" height="28" rx="8" fill="#e2e8f0"/>
+  <text x="190" y="305" text-anchor="middle" class="chip" fill="#64748b">Kotlin</text>
+  <rect x="240" y="285" width="80" height="28" rx="8" fill="#e2e8f0"/>
+  <text x="280" y="305" text-anchor="middle" class="chip" fill="#64748b">Groovy</text>
+  <text x="60" y="341" class="text">→ Chọn Java</text>
+
+  <!-- Step 3: Spring Boot Version -->
+  <rect x="40" y="370" width="340" height="100" rx="14" fill="#dcfce7" stroke="#86efac" stroke-width="2"/>
+  <circle cx="70" cy="400" r="18" fill="#16a34a"/>
+  <text x="70" y="406" text-anchor="middle" class="step">3</text>
+  <text x="100" y="406" class="label">Spring Boot Version</text>
+  <rect x="60" y="420" width="100" height="28" rx="8" fill="#16a34a"/>
+  <text x="110" y="440" text-anchor="middle" class="chip" fill="#fff">✅ 3.4.x</text>
+  <text x="60" y="458" class="text">→ Chọn bản stable mới nhất</text>
+
+  <!-- Step 4: Metadata -->
+  <rect x="420" y="100" width="380" height="370" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="450" cy="130" r="18" fill="#6366f1"/>
+  <text x="450" y="136" text-anchor="middle" class="step">4</text>
+  <text x="480" y="136" class="label">Project Metadata</text>
+
+  <text x="440" y="170" class="text">Group:</text>
+  <rect x="540" y="152" width="240" height="28" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="552" y="172" class="mono">com.example</text>
+
+  <text x="440" y="210" class="text">Artifact:</text>
+  <rect x="540" y="192" width="240" height="28" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="552" y="212" class="mono">demo</text>
+
+  <text x="440" y="250" class="text">Name:</text>
+  <rect x="540" y="232" width="240" height="28" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="552" y="252" class="mono">demo</text>
+
+  <text x="440" y="290" class="text">Package:</text>
+  <rect x="540" y="272" width="240" height="28" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="552" y="292" class="mono">com.example.demo</text>
+
+  <text x="440" y="330" class="text">Packaging:</text>
+  <rect x="540" y="312" width="80" height="28" rx="8" fill="#6366f1"/>
+  <text x="580" y="332" text-anchor="middle" class="chip" fill="#fff">✅ Jar</text>
+  <rect x="630" y="312" width="80" height="28" rx="8" fill="#e2e8f0"/>
+  <text x="670" y="332" text-anchor="middle" class="chip" fill="#64748b">War</text>
+
+  <text x="440" y="370" class="text">Java:</text>
+  <rect x="540" y="352" width="60" height="28" rx="8" fill="#6366f1"/>
+  <text x="570" y="372" text-anchor="middle" class="chip" fill="#fff">✅ 21</text>
+  <rect x="610" y="352" width="60" height="28" rx="8" fill="#e2e8f0"/>
+  <text x="640" y="372" text-anchor="middle" class="chip" fill="#64748b">17</text>
+
+  <text x="440" y="420" class="text" fill="#6366f1">💡 Group = tên tổ chức (reversed domain)</text>
+  <text x="440" y="445" class="text" fill="#6366f1">💡 Artifact = tên project</text>
+
+  <!-- Step 5: Dependencies -->
+  <rect x="840" y="100" width="320" height="370" rx="14" fill="#fce7f3" stroke="#f9a8d4" stroke-width="2"/>
+  <circle cx="870" cy="130" r="18" fill="#db2777"/>
+  <text x="870" y="136" text-anchor="middle" class="step">5</text>
+  <text x="900" y="136" class="label">Dependencies</text>
+  <text x="860" y="162" class="text">Nhấn "ADD DEPENDENCIES"</text>
+
+  <rect x="860" y="178" width="280" height="44" rx="10" fill="#fff" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="876" y="200" class="label" fill="#2563eb">Spring Web</text>
+  <text x="876" y="215" class="text" font-size="12" fill="#64748b">Build web, RESTful APIs</text>
+
+  <rect x="860" y="230" width="280" height="44" rx="10" fill="#fff" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="876" y="252" class="label" fill="#16a34a">Spring Boot DevTools</text>
+  <text x="876" y="267" class="text" font-size="12" fill="#64748b">Auto restart, live reload</text>
+
+  <rect x="860" y="282" width="280" height="44" rx="10" fill="#fff" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="876" y="304" class="label" fill="#d97706">Lombok</text>
+  <text x="876" y="319" class="text" font-size="12" fill="#64748b">Reduce boilerplate code</text>
+
+  <text x="860" y="352" class="text" fill="#db2777">Buổi 2 chỉ cần Spring Web</text>
+  <text x="860" y="376" class="text" fill="#db2777">   là đủ để bắt đầu!</text>
+
+  <!-- Generate Button -->
+  <rect x="420" y="510" width="360" height="60" rx="14" fill="url(#greenBtn)" stroke="#15803d" stroke-width="2"/>
+  <text x="600" y="548" text-anchor="middle" font-size="26" font-weight="800" fill="#fff" font-family="Segoe UI, Arial">GENERATE</text>
+
+  <!-- Bottom instruction -->
+  <text x="600" y="610" text-anchor="middle" class="subtitle">Nhấn GENERATE → Tải file .zip → Giải nén → Mở bằng IDE</text>
+  <text x="600" y="640" text-anchor="middle" class="url">https://start.spring.io</text>
+  
+  <!-- Arrow from button to instruction -->
+  <line x1="600" y1="575" x2="600" y2="590" stroke="#16a34a" stroke-width="3"/>
+  <polygon points="593,588 607,588 600,598" fill="#16a34a"/>
+</svg>

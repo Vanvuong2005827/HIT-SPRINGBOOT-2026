@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">HTTP Status Codes Overview</title>
+  <desc id="desc">Overview of HTTP status code classes from 1xx to 5xx.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 40px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .subtitle { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #4b5563; }
+      .cardTitle { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #111827; }
+      .cardText { font: 500 20px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .example { font: 500 18px 'Consolas', 'Courier New', monospace; fill: #374151; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#bg)"/>
+
+  <text x="600" y="62" text-anchor="middle" class="title">HTTP Status Codes</text>
+  <text x="600" y="95" text-anchor="middle" class="subtitle">5 classes by first digit</text>
+
+  <rect x="40" y="130" width="208" height="330" rx="18" fill="#e0f2fe" stroke="#7dd3fc"/>
+  <text x="144" y="190" text-anchor="middle" class="cardTitle">1xx</text>
+  <text x="144" y="228" text-anchor="middle" class="cardText">Informational</text>
+  <text x="144" y="264" text-anchor="middle" class="example">100 Continue</text>
+
+  <rect x="268" y="130" width="208" height="330" rx="18" fill="#dcfce7" stroke="#86efac"/>
+  <text x="372" y="190" text-anchor="middle" class="cardTitle">2xx</text>
+  <text x="372" y="228" text-anchor="middle" class="cardText">Success</text>
+  <text x="372" y="264" text-anchor="middle" class="example">200 OK</text>
+  <text x="372" y="292" text-anchor="middle" class="example">201 Created</text>
+
+  <rect x="496" y="130" width="208" height="330" rx="18" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="600" y="190" text-anchor="middle" class="cardTitle">3xx</text>
+  <text x="600" y="228" text-anchor="middle" class="cardText">Redirection</text>
+  <text x="600" y="264" text-anchor="middle" class="example">301 Moved Permanently</text>
+  <text x="600" y="292" text-anchor="middle" class="example">302 Found</text>
+
+  <rect x="724" y="130" width="208" height="330" rx="18" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="828" y="190" text-anchor="middle" class="cardTitle">4xx</text>
+  <text x="828" y="228" text-anchor="middle" class="cardText">Client Error</text>
+  <text x="828" y="264" text-anchor="middle" class="example">400 Bad Request</text>
+  <text x="828" y="292" text-anchor="middle" class="example">404 Not Found</text>
+
+  <rect x="952" y="130" width="208" height="330" rx="18" fill="#f3e8ff" stroke="#d8b4fe"/>
+  <text x="1056" y="190" text-anchor="middle" class="cardTitle">5xx</text>
+  <text x="1056" y="228" text-anchor="middle" class="cardText">Server Error</text>
+  <text x="1056" y="264" text-anchor="middle" class="example">500 Internal Server Error</text>
+  <text x="1056" y="292" text-anchor="middle" class="example">503 Service Unavailable</text>
+
+  <text x="600" y="492" text-anchor="middle" class="subtitle">Local image to avoid broken external links</text>
+</svg>
