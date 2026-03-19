@@ -214,7 +214,72 @@ spring.application.name=demo        # Tên ứng dụng
 
 ---
 
-## I. HTTP Request & Response
+## I. API là gì?
+
+### 1. Khái niệm API
+
+- **API** (Application Programming Interface) là **giao diện lập trình ứng dụng** — một tập hợp các quy tắc cho phép các phần mềm giao tiếp với nhau
+- API giống như **người phục vụ trong nhà hàng**: bạn (client) gọi món → phục vụ (API) nhận yêu cầu → chuyển cho bếp (server) xử lý → mang đồ ăn (response) về cho bạn
+- Trong phát triển web, **API** thường chỉ **Web API** — cho phép frontend giao tiếp với backend qua mạng
+
+### 2. REST API
+
+- **REST** (Representational State Transfer) là kiến trúc phổ biến nhất để thiết kế Web API
+- **REST API** sử dụng HTTP làm giao thức truyền tải, với các quy ước:
+
+| Quy ước | Mô tả |
+|---|---|
+| Sử dụng HTTP methods | GET (đọc), POST (tạo), PUT (cập nhật), DELETE (xóa) |
+| URL đại diện cho tài nguyên | `/api/users`, `/api/products/1` |
+| Stateless | Mỗi request độc lập, server không lưu trạng thái client |
+| Trả về JSON | Định dạng dữ liệu phổ biến nhất hiện nay |
+
+```
+Client (React, Mobile App)
+    │
+    │   GET /api/users/1
+    │   Authorization: Bearer token123
+    ▼
+REST API (Spring Boot)
+    │
+    │   { "id": 1, "name": "Nguyen Van A" }
+    │   Status: 200 OK
+    ▼
+Client nhận JSON → hiển thị lên giao diện
+```
+
+> **Trong khóa học này, chúng ta sẽ xây dựng REST API bằng Spring Boot.**
+
+### 3. Các cách giao tiếp khác ngoài REST API
+
+REST API không phải cách duy nhất để client và server giao tiếp. Tùy bài toán, có thể dùng:
+
+| Cách giao tiếp | Mô tả | Khi nào dùng? |
+|---|---|---|
+| **REST API** | Request-Response qua HTTP, trả JSON | CRUD thông thường, web/mobile app (phổ biến nhất) |
+| **WebSocket** | Kết nối 2 chiều, real-time | Chat, game online, bảng giá chứng khoán |
+| **GraphQL** | Client tự chọn dữ liệu cần lấy | Khi cần linh hoạt query, tránh over-fetching |
+| **gRPC** | Giao tiếp binary, hiệu năng cao | Microservices giao tiếp nội bộ |
+| **Message Queue** | Giao tiếp bất đồng bộ qua broker (RabbitMQ, Kafka) | Xử lý nền, hệ thống phân tán |
+
+So sánh nhanh REST vs WebSocket:
+
+```
+REST API (Request-Response):
+Client ──request──▶ Server
+Client ◀─response── Server
+→ Mỗi lần cần dữ liệu mới phải gửi request
+
+WebSocket (Bidirectional):
+Client ◀──────────▶ Server
+→ Kết nối mở liên tục, server có thể chủ động gửi dữ liệu cho client
+```
+
+> **Kết luận:** REST API là lựa chọn mặc định cho hầu hết ứng dụng web. Các cách khác dùng khi có yêu cầu đặc biệt (real-time, hiệu năng cao, bất đồng bộ).
+
+---
+
+## II. HTTP Request & Response
 
 ### 1. HTTP là gì?
 
@@ -314,7 +379,7 @@ DELETE  /api/users/1        → Xóa user id = 1
 
 ---
 
-## II. HTTP Status Code
+## III. HTTP Status Code
 
 ![HTTP Status Codes](./assets/http-status-codes-overview.svg)
 
@@ -418,7 +483,7 @@ public class UserController {
 
 ---
 
-## III. Annotation cho Controller
+## IV. Annotation cho Controller
 
 ### 1. @Controller vs @RestController
 
@@ -551,7 +616,7 @@ public class UserController {
 
 ---
 
-## IV. 3 Cách nhận dữ liệu từ Client (3 Types of Data)
+## V. 3 Cách nhận dữ liệu từ Client (3 Types of Data)
 
 ![3 Types of Data](./assets/request-data-types.svg)
 
@@ -696,7 +761,7 @@ public User updateUser(
 
 ---
 
-## V. Bean trong Spring (Deep Dive)
+## VI. Bean trong Spring (Deep Dive)
 
 > Ở Buổi 1, ta đã biết **Bean là object được Spring Container quản lý**. Bây giờ ta đi sâu hơn.
 
@@ -851,7 +916,7 @@ false
 
 ---
 
-## VI. ApplicationContext (Deep Dive)
+## VII. ApplicationContext (Deep Dive)
 
 ### 1. ApplicationContext là gì?
 
@@ -962,7 +1027,7 @@ public class DemoApplication implements CommandLineRunner {
 
 ---
 
-## VII. Vòng đời của Bean (Bean Lifecycle)
+## VIII. Vòng đời của Bean (Bean Lifecycle)
 
 ### 1. Tổng quan Lifecycle
 
