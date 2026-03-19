@@ -7,7 +7,7 @@
 - Hiểu về giao thức HTTP: Request, Response, các phương thức HTTP
 - Nắm vững các HTTP Status Code thường gặp
 - Sử dụng các Annotation cho Controller trong Spring Boot
-- Hiểu 3 cách nhận dữ liệu từ client: `@RequestParam`, `@PathVariable`, `@RequestBody`
+- Hiểu một số cách ánh xạ dữ liệu từ HTTP request vào method parameter: `@RequestParam`, `@PathVariable`, `@RequestBody`
 - Hiểu sâu về Bean: các loại Bean, Bean Scope
 - Nắm được ApplicationContext và cách hoạt động
 - Hiểu vòng đời (Lifecycle) của Bean trong Spring
@@ -614,11 +614,11 @@ public class UserController {
 
 ---
 
-## V. 3 Cách nhận dữ liệu từ Client (3 Types of Data)
+## V. Một số cách ánh xạ dữ liệu từ HTTP request (Data Binding)
 
 ![3 Types of Data](./assets/request-data-types.svg)
 
-Khi client gửi request, dữ liệu có thể nằm ở **3 vị trí** khác nhau:
+Khi client gửi request, dữ liệu có thể nằm ở **các vị trí** khác nhau:
 
 ```
 GET /api/users/42?sort=name&order=asc
@@ -1256,7 +1256,7 @@ public class MyService {
 | HTTP Request | GET, POST, PUT, PATCH, DELETE — cấu trúc request/response |
 | HTTP Status Code | 2xx (thành công), 4xx (lỗi client), 5xx (lỗi server) |
 | Controller Annotations | `@RestController`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping` |
-| 3 Types of Data | `@PathVariable` (path), `@RequestParam` (query), `@RequestBody` (JSON body) |
+| Data Binding | `@PathVariable` (path), `@RequestParam` (query), `@RequestBody` (JSON body) |
 | Bean Deep Dive | Stereotype annotations, `@Bean` vs `@Component`, Bean Scope |
 | ApplicationContext | IoC Container, Component Scanning, lấy Bean |
 | Bean Lifecycle | `@PostConstruct` → Bean Ready → `@PreDestroy` |
