@@ -7,7 +7,7 @@
 - Hiểu về giao thức HTTP: Request, Response, các phương thức HTTP
 - Nắm vững các HTTP Status Code thường gặp
 - Sử dụng các Annotation cho Controller trong Spring Boot
-- Hiểu một số cách ánh xạ dữ liệu từ HTTP request vào method parameter: `@RequestParam`, `@PathVariable`, `@RequestBody`
+- Phân biệt 2 cơ chế map dữ liệu từ HTTP request vào method parameter: `@RequestParam`, `@PathVariable`, `@ModelAttribute` (web data binding) và `@RequestBody`
 - Hiểu sâu về Bean: các loại Bean, Bean Scope
 - Nắm được ApplicationContext và cách hoạt động
 - Hiểu vòng đời (Lifecycle) của Bean trong Spring
@@ -614,9 +614,9 @@ public class UserController {
 
 ---
 
-## V. Một số cách ánh xạ dữ liệu từ HTTP request (Data Binding)
+## V. Ánh xạ dữ liệu HTTP request vào method parameter
 
-![3 Types of Data](./assets/request-data-types.svg)
+![Request Mapping Mechanisms](./assets/request-data-types.svg)
 
 Khi client gửi request, dữ liệu có thể nằm ở **các vị trí** khác nhau:
 
@@ -630,6 +630,10 @@ Body: { "name": "HIT", "email": "hit@example.com" }
       ──────────────────────────────────────────────
                      Request Body
 ```
+
+> **Phân biệt chuẩn kỹ thuật:**
+> - `@RequestParam`, `@PathVariable`, `@ModelAttribute` → thiên về **web data binding** (WebDataBinder)
+> - `@RequestBody` → thiên về **deserialize request body** thành object (qua HttpMessageConverter)
 
 ### 1. @PathVariable — Dữ liệu trên đường dẫn (Path)
 
@@ -696,7 +700,7 @@ public List<User> getUsersByIds(@RequestParam List<Long> ids) {
 ### 3. @RequestBody — Dữ liệu trong Body (JSON)
 
 - Lấy dữ liệu từ **request body**, thường là **JSON**
-- Spring tự động chuyển JSON → Java Object (deserialization bằng Jackson)
+- Spring dùng **HttpMessageConverter** để đọc body và deserialize JSON/XML → Java Object (thường qua Jackson)
 - Thường dùng cho **POST, PUT, PATCH**
 
 ```java
@@ -732,6 +736,7 @@ public User updateUser(@PathVariable Long id,
 
 - Lấy dữ liệu từ **HTML form** (Content-Type: `application/x-www-form-urlencoded` hoặc `multipart/form-data`)
 - Spring tự động bind các field của form vào Java Object theo tên field
+- Thuộc nhóm **web data binding** (cùng cơ chế với `@RequestParam` và `@PathVariable`)
 - Thường dùng khi làm **server-side rendering** (Thymeleaf) hoặc nhận dữ liệu từ form HTML
 
 ```java
@@ -767,7 +772,7 @@ public String register(@ModelAttribute RegisterForm form) {
 
 > **Quy tắc:** Làm REST API → dùng `@RequestBody`. Làm web với Thymeleaf/JSP → dùng `@ModelAttribute`.
 
-### 5. Bảng so sánh 4 cách nhận dữ liệu
+### 5. Bảng so sánh 4 cách map dữ liệu từ request
 
 | Tiêu chí | @PathVariable | @RequestParam | @RequestBody | @ModelAttribute |
 |---|---|---|---|---|
@@ -1256,7 +1261,7 @@ public class MyService {
 | HTTP Request | GET, POST, PUT, PATCH, DELETE — cấu trúc request/response |
 | HTTP Status Code | 2xx (thành công), 4xx (lỗi client), 5xx (lỗi server) |
 | Controller Annotations | `@RestController`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping` |
-| Data Binding | `@PathVariable` (path), `@RequestParam` (query), `@RequestBody` (JSON body) |
+| Mapping dữ liệu request | `@PathVariable`, `@RequestParam`, `@ModelAttribute` (web data binding) và `@RequestBody` (deserialize JSON body) |
 | Bean Deep Dive | Stereotype annotations, `@Bean` vs `@Component`, Bean Scope |
 | ApplicationContext | IoC Container, Component Scanning, lấy Bean |
 | Bean Lifecycle | `@PostConstruct` → Bean Ready → `@PreDestroy` |
@@ -1268,7 +1273,7 @@ public class MyService {
 1. Sự khác nhau giữa `PUT` và `PATCH`? Khi nào dùng cái nào?
 2. HTTP Status Code `401` và `403` khác nhau thế nào? Cho ví dụ thực tế.
 3. `@Controller` và `@RestController` khác nhau ở điểm nào? Khi nào dùng cái nào?
-4. So sánh `@PathVariable`, `@RequestParam`, `@RequestBody` — khi nào dùng cái nào?
+4. So sánh `@PathVariable`, `@RequestParam`, `@ModelAttribute`, `@RequestBody` — cơ chế nào là web data binding, cơ chế nào là body deserialization?
 5. Tại sao cần có `@Service`, `@Repository` trong khi `@Component` đã đủ?
 6. Khi nào dùng `@Bean` thay cho `@Component`?
 7. Singleton scope có vấn đề gì khi xử lý concurrent request?
