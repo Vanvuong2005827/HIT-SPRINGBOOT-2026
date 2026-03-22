@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">API Response Structure</title>
+  <desc id="desc">Diagram comparing inconsistent vs unified API response format using ApiResponse wrapper</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .sublabel { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .text { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .text-sm { font: 500 12px 'Segoe UI', Arial, sans-serif; fill: #64748b; }
+      .mono { font: 600 13px 'Consolas', monospace; }
+      .field-label { font: 700 15px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .section-title { font: 700 18px 'Segoe UI', Arial, sans-serif; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto">
+      <path d="M0,0 L5,10 L10,0 Z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" class="title">Chuan hoa API Response</text>
+  <text x="600" y="62" text-anchor="middle" class="subtitle">Moi API deu tra ve cung 1 format → Frontend de xu ly, de bao tri</text>
+
+  <!-- LEFT SIDE: Before (Bad) -->
+  <rect x="30" y="80" width="540" height="410" rx="14" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
+  <text x="300" y="110" text-anchor="middle" class="section-title" fill="#dc2626">✗ Khong chuan hoa — Moi API 1 kieu</text>
+
+  <!-- API 1 -->
+  <rect x="50" y="125" width="500" height="80" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="65" y="148" class="mono" fill="#3b82f6">GET /users/1</text>
+  <text x="300" y="148" class="mono" fill="#64748b">→</text>
+  <text x="320" y="148" class="mono" fill="#334155">{ "id": 1, "name": "HIT" }</text>
+  <text x="65" y="170" class="text-sm">Tra ve object truc tiep</text>
+
+  <!-- API 2 -->
+  <rect x="50" y="215" width="500" height="80" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="65" y="238" class="mono" fill="#ef4444">DELETE /users/1</text>
+  <text x="320" y="238" class="mono" fill="#64748b">→</text>
+  <text x="345" y="238" class="mono" fill="#334155">"Xoa thanh cong"</text>
+  <text x="65" y="260" class="text-sm">Tra ve String</text>
+
+  <!-- API 3 -->
+  <rect x="50" y="305" width="500" height="80" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="65" y="328" class="mono" fill="#f59e0b">POST /users</text>
+  <text x="280" y="328" class="mono" fill="#64748b">→</text>
+  <text x="300" y="328" class="mono" fill="#334155">ResponseEntity 201</text>
+  <text x="65" y="350" class="text-sm">Tra ve ResponseEntity</text>
+
+  <!-- Problem text -->
+  <rect x="50" y="400" width="500" height="72" rx="10" fill="#fee2e2"/>
+  <text x="300" y="425" text-anchor="middle" class="text" font-weight="600" fill="#dc2626">Van de: Frontend phai xu ly tung kieu response</text>
+  <text x="300" y="448" text-anchor="middle" class="text-sm" fill="#dc2626">Kho bao tri, khong nhat quan, de bug kho</text>
+
+  <!-- RIGHT SIDE: After (Good) -->
+  <rect x="600" y="80" width="570" height="410" rx="14" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="885" y="110" text-anchor="middle" class="section-title" fill="#16a34a">✓ Chuan hoa — ApiResponse&lt;T&gt;</text>
+
+  <!-- ApiResponse Box -->
+  <rect x="660" y="125" width="450" height="200" rx="14" fill="#8b5cf6"/>
+  <text x="885" y="155" text-anchor="middle" class="label">ApiResponse&lt;T&gt;</text>
+
+  <!-- Fields -->
+  <rect x="680" y="168" width="410" height="34" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="695" y="190" class="mono" fill="#fbbf24">int code</text>
+  <text x="830" y="190" class="sublabel">→ HTTP status code (200, 201, 404...)</text>
+
+  <rect x="680" y="208" width="410" height="34" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="695" y="230" class="mono" fill="#fbbf24">String message</text>
+  <text x="870" y="230" class="sublabel">→ Thong bao mo ta</text>
+
+  <rect x="680" y="248" width="410" height="34" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <text x="695" y="270" class="mono" fill="#fbbf24">T data</text>
+  <text x="800" y="270" class="sublabel">→ Du lieu tra ve (Generic Type)</text>
+
+  <rect x="680" y="288" width="410" height="28" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <text x="695" y="307" class="mono" fill="#fbbf24">LocalDateTime timestamp</text>
+  <text x="920" y="307" class="sublabel">→ Thoi gian</text>
+
+  <!-- Success example -->
+  <rect x="660" y="340" width="220" height="130" rx="10" fill="#fff" stroke="#86efac" stroke-width="2"/>
+  <text x="770" y="362" text-anchor="middle" class="field-label" fill="#16a34a">Thanh cong</text>
+  <text x="675" y="382" class="mono" fill="#334155">{ "code": 200,</text>
+  <text x="675" y="398" class="mono" fill="#334155">  "message": "OK",</text>
+  <text x="675" y="414" class="mono" fill="#334155">  "data": {...},</text>
+  <text x="675" y="430" class="mono" fill="#334155">  "timestamp":... }</text>
+
+  <!-- Error example -->
+  <rect x="890" y="340" width="220" height="130" rx="10" fill="#fff" stroke="#fca5a5" stroke-width="2"/>
+  <text x="1000" y="362" text-anchor="middle" class="field-label" fill="#ef4444">Loi</text>
+  <text x="905" y="382" class="mono" fill="#334155">{ "code": 404,</text>
+  <text x="905" y="398" class="mono" fill="#334155">  "message": "Not</text>
+  <text x="905" y="414" class="mono" fill="#334155">    found",</text>
+  <text x="905" y="430" class="mono" fill="#334155">  "timestamp":... }</text>
+
+  <!-- Bottom benefit -->
+  <rect x="660" y="477" width="450" height="35" rx="8" fill="#dcfce7"/>
+  <text x="885" y="499" text-anchor="middle" class="text" font-weight="600" fill="#16a34a">Frontend chi can kiem tra code → message → data</text>
+</svg>

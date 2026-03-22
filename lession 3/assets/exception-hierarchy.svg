@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">Custom Exception Hierarchy</title>
+  <desc id="desc">Diagram showing the hierarchy of custom exceptions extending from RuntimeException</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .label { font: 700 17px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .sublabel { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .text { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .text-sm { font: 500 12px 'Segoe UI', Arial, sans-serif; fill: #64748b; }
+      .mono { font: 600 13px 'Consolas', monospace; }
+      .class-name { font: 700 16px 'Consolas', monospace; fill: #fff; }
+      .field { font: 500 12px 'Consolas', monospace; fill: rgba(255,255,255,0.85); }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="480" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" class="title">Custom Exception Hierarchy</text>
+  <text x="600" y="62" text-anchor="middle" class="subtitle">Tao Exception rieng de xu ly loi nghiep vu ro rang, co cau truc</text>
+
+  <!-- RuntimeException (Java built-in) -->
+  <rect x="430" y="80" width="340" height="65" rx="14" fill="#94a3b8"/>
+  <text x="600" y="108" text-anchor="middle" class="class-name">RuntimeException</text>
+  <text x="600" y="130" text-anchor="middle" class="sublabel">Java Built-in (unchecked)</text>
+
+  <!-- Line down to AppException -->
+  <line x1="600" y1="145" x2="600" y2="175" stroke="#64748b" stroke-width="3"/>
+  <polygon points="594,170 606,170 600,180" fill="#64748b"/>
+  <text x="615" y="165" class="text-sm">extends</text>
+
+  <!-- AppException -->
+  <rect x="390" y="180" width="420" height="90" rx="14" fill="#8b5cf6"/>
+  <text x="600" y="208" text-anchor="middle" class="class-name">AppException</text>
+  <line x1="410" y1="218" x2="790" y2="218" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="410" y="238" class="field">- int errorCode</text>
+  <text x="410" y="255" class="field">+ AppException(int errorCode, String message)</text>
+
+  <!-- Lines from AppException to children -->
+  <!-- Left branch -->
+  <line x1="450" y1="270" x2="450" y2="300" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="450" y1="300" x2="170" y2="300" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="170" y1="300" x2="170" y2="330" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="164,325 176,325 170,335" fill="#8b5cf6"/>
+
+  <!-- Center branch -->
+  <line x1="600" y1="270" x2="600" y2="330" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="594,325 606,325 600,335" fill="#8b5cf6"/>
+
+  <!-- Right branch -->
+  <line x1="750" y1="270" x2="750" y2="300" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="750" y1="300" x2="1020" y2="300" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="1020" y1="300" x2="1020" y2="330" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="1014,325 1026,325 1020,335" fill="#8b5cf6"/>
+
+  <!-- ResourceNotFoundException -->
+  <rect x="30" y="335" width="280" height="120" rx="14" fill="#ef4444"/>
+  <text x="170" y="362" text-anchor="middle" class="class-name" font-size="14">ResourceNotFoundException</text>
+  <line x1="45" y1="372" x2="295" y2="372" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="50" y="392" class="field">HTTP 404 Not Found</text>
+  <text x="50" y="412" class="field">Vi du: User khong tim thay</text>
+  <text x="50" y="432" class="field">voi id: '99'</text>
+
+  <!-- 404 Badge -->
+  <rect x="245" y="338" width="55" height="24" rx="12" fill="#fff"/>
+  <text x="272" y="355" text-anchor="middle" class="mono" fill="#ef4444" font-weight="700">404</text>
+
+  <!-- DuplicateResourceException -->
+  <rect x="390" y="335" width="420" height="120" rx="14" fill="#f59e0b"/>
+  <text x="600" y="362" text-anchor="middle" class="class-name" font-size="14">DuplicateResourceException</text>
+  <line x1="405" y1="372" x2="795" y2="372" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="410" y="392" class="field">HTTP 409 Conflict</text>
+  <text x="410" y="412" class="field">Vi du: User da ton tai voi email: 'a@example.com'</text>
+  <text x="410" y="432" class="field">→ Du lieu bi trung lap</text>
+
+  <!-- 409 Badge -->
+  <rect x="755" y="338" width="55" height="24" rx="12" fill="#fff"/>
+  <text x="782" y="355" text-anchor="middle" class="mono" fill="#f59e0b" font-weight="700">409</text>
+
+  <!-- BadRequestException -->
+  <rect x="880" y="335" width="280" height="120" rx="14" fill="#3b82f6"/>
+  <text x="1020" y="362" text-anchor="middle" class="class-name" font-size="14">BadRequestException</text>
+  <line x1="895" y1="372" x2="1145" y2="372" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="900" y="392" class="field">HTTP 400 Bad Request</text>
+  <text x="900" y="412" class="field">Vi du: So du khong du</text>
+  <text x="900" y="432" class="field">→ Loi nghiep vu chung</text>
+
+  <!-- 400 Badge -->
+  <rect x="1100" y="338" width="55" height="24" rx="12" fill="#fff"/>
+  <text x="1127" y="355" text-anchor="middle" class="mono" fill="#3b82f6" font-weight="700">400</text>
+</svg>

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img" aria-labelledby="title desc">
+  <title id="title">Bean Validation Annotations</title>
+  <desc id="desc">Overview of Bean Validation annotation groups in Spring Boot</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .label { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .sublabel { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .text { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .mono { font: 600 13px 'Consolas', monospace; fill: #fff; }
+      .mono-dark { font: 600 13px 'Consolas', monospace; fill: #334155; }
+      .group-title { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #fff; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="580" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" class="title">Bean Validation Annotations (JSR 380)</text>
+  <text x="600" y="62" text-anchor="middle" class="subtitle">Cac annotation thuong dung de validate du lieu dau vao trong Spring Boot</text>
+
+  <!-- Group 1: Null/Empty -->
+  <rect x="30" y="85" width="360" height="210" rx="14" fill="#3b82f6"/>
+  <text x="210" y="115" text-anchor="middle" class="group-title">Nhom 1: Kiem tra Null/Rong</text>
+
+  <rect x="50" y="130" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="60" y="151" class="mono">@NotNull</text>
+  <text x="195" y="151" class="sublabel">→ Khong null, nhung cho phep ""</text>
+
+  <rect x="50" y="170" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="60" y="191" class="mono">@NotEmpty</text>
+  <text x="200" y="191" class="sublabel">→ Khong null, khong ""</text>
+
+  <rect x="50" y="210" width="320" height="32" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <text x="60" y="231" class="mono">@NotBlank</text>
+  <text x="200" y="231" class="sublabel">→ Khong null, "", "  " ★</text>
+
+  <rect x="50" y="255" width="320" height="28" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="210" y="274" text-anchor="middle" class="sublabel">★ Khuyen nghi cho String</text>
+
+  <!-- Group 2: Number -->
+  <rect x="420" y="85" width="360" height="210" rx="14" fill="#8b5cf6"/>
+  <text x="600" y="115" text-anchor="middle" class="group-title">Nhom 2: Kiem tra Gia tri So</text>
+
+  <rect x="440" y="130" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="151" class="mono">@Min(value)</text>
+  <text x="590" y="151" class="sublabel">→ Gia tri toi thieu</text>
+
+  <rect x="440" y="170" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="191" class="mono">@Max(value)</text>
+  <text x="590" y="191" class="sublabel">→ Gia tri toi da</text>
+
+  <rect x="440" y="210" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="231" class="mono">@Positive</text>
+  <text x="580" y="231" class="sublabel">→ Phai > 0</text>
+
+  <rect x="440" y="250" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="271" class="mono">@PositiveOrZero</text>
+  <text x="620" y="271" class="sublabel">→ Phai >= 0</text>
+
+  <!-- Group 3: Size -->
+  <rect x="810" y="85" width="360" height="210" rx="14" fill="#0ea5e9"/>
+  <text x="990" y="115" text-anchor="middle" class="group-title">Nhom 3: Kiem tra Kich thuoc</text>
+
+  <rect x="830" y="130" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="840" y="151" class="mono">@Size(min, max)</text>
+  <text x="1000" y="151" class="sublabel">→ Do dai chuoi/list</text>
+
+  <rect x="830" y="170" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="840" y="191" class="mono">@Length(min, max)</text>
+  <text x="1015" y="191" class="sublabel">→ Hibernate</text>
+
+  <rect x="830" y="220" width="320" height="56" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <text x="990" y="245" text-anchor="middle" class="sublabel">Vi du:</text>
+  <text x="990" y="265" text-anchor="middle" class="mono">@Size(min=2, max=50)</text>
+
+  <!-- Group 4: Format -->
+  <rect x="30" y="315" width="360" height="180" rx="14" fill="#16a34a"/>
+  <text x="210" y="345" text-anchor="middle" class="group-title">Nhom 4: Kiem tra Format</text>
+
+  <rect x="50" y="360" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="60" y="381" class="mono">@Email</text>
+  <text x="160" y="381" class="sublabel">→ Phai la email hop le</text>
+
+  <rect x="50" y="400" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="60" y="421" class="mono">@Pattern(regexp)</text>
+  <text x="220" y="421" class="sublabel">→ Khop regex</text>
+
+  <rect x="50" y="445" width="320" height="38" rx="6" fill="rgba(255,255,255,0.1)"/>
+  <text x="210" y="469" text-anchor="middle" class="mono">@Pattern("^\\d{10}$")</text>
+
+  <!-- Group 5: Date/Boolean -->
+  <rect x="420" y="315" width="360" height="180" rx="14" fill="#f59e0b"/>
+  <text x="600" y="345" text-anchor="middle" class="group-title">Nhom 5: Ngay thang / Boolean</text>
+
+  <rect x="440" y="360" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="381" class="mono">@Past</text>
+  <text x="140" y="381" class="sublabel"></text>
+  <text x="540" y="381" class="sublabel">→ Ngay o qua khu</text>
+
+  <rect x="440" y="400" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="421" class="mono">@Future</text>
+  <text x="560" y="421" class="sublabel">→ Ngay o tuong lai</text>
+
+  <rect x="440" y="440" width="320" height="32" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="461" class="mono">@AssertTrue/False</text>
+  <text x="640" y="461" class="sublabel">→ Boolean</text>
+
+  <!-- Activation Box -->
+  <rect x="810" y="315" width="360" height="180" rx="14" fill="#ec4899"/>
+  <text x="990" y="345" text-anchor="middle" class="group-title">Cach kich hoat Validation</text>
+
+  <rect x="830" y="360" width="320" height="40" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="840" y="377" class="mono">@Valid</text>
+  <text x="920" y="377" class="sublabel">truoc @RequestBody</text>
+  <text x="840" y="393" class="sublabel">→ Validate DTO, nested object</text>
+
+  <rect x="830" y="410" width="320" height="40" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="840" y="427" class="mono">@Validated</text>
+  <text x="950" y="427" class="sublabel">tren class Controller</text>
+  <text x="840" y="443" class="sublabel">→ Validate @RequestParam, @PathVariable</text>
+
+  <rect x="830" y="460" width="320" height="28" rx="6" fill="rgba(255,255,255,0.25)"/>
+  <text x="990" y="479" text-anchor="middle" class="sublabel">Phai them annotation thi Validation moi hoat dong!</text>
+
+  <!-- Bottom note -->
+  <rect x="30" y="510" width="1140" height="48" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="600" y="530" text-anchor="middle" class="text" font-weight="600">Spring Boot Starter Validation = Bean Validation (JSR 380) + Hibernate Validator</text>
+  <text x="600" y="548" text-anchor="middle" class="text-sm">Tu Spring Boot 2.3+, phai them thu cong dependency: spring-boot-starter-validation</text>
+</svg>

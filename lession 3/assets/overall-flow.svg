@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img">
+  <title>Overall Flow: Validation + ApiResponse + Exception Handling</title>
+  <defs>
+    <style>
+      .t{font:700 26px 'Segoe UI',Arial;fill:#0f172a}.s{font:600 15px 'Segoe UI',Arial;fill:#475569}.l{font:700 17px 'Segoe UI',Arial;fill:#fff}.sl{font:500 12px 'Segoe UI',Arial;fill:#fff}.tx{font:500 13px 'Segoe UI',Arial;fill:#334155}.mn{font:600 12px Consolas,monospace}
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#e2e8f0"/></linearGradient>
+    <marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6"/></marker>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#16a34a"/></marker>
+    <marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ef4444"/></marker>
+    <marker id="a4" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#8b5cf6"/></marker>
+  </defs>
+  <rect width="1200" height="500" fill="url(#bg)" rx="12"/>
+
+  <text x="600" y="35" text-anchor="middle" class="t">Luong tong the: Validation + ApiResponse + Exception Handling</text>
+  <text x="600" y="58" text-anchor="middle" class="s">Tu Client gui request den nhan response — moi buoc deu duoc kiem soat</text>
+
+  <!-- Step 1: Client -->
+  <rect x="30" y="80" width="150" height="100" rx="14" fill="#0ea5e9"/>
+  <text x="105" y="115" text-anchor="middle" class="l">1. Client</text>
+  <text x="105" y="138" text-anchor="middle" class="sl">Gui Request</text>
+  <text x="105" y="155" text-anchor="middle" class="sl">POST /api/users</text>
+
+  <line x1="190" y1="130" x2="250" y2="130" stroke="#3b82f6" stroke-width="3" marker-end="url(#a1)"/>
+  <text x="220" y="120" text-anchor="middle" class="mn" fill="#3b82f6">JSON</text>
+
+  <!-- Step 2: Controller + Validation -->
+  <rect x="260" y="75" width="210" height="115" rx="14" fill="#3b82f6"/>
+  <text x="365" y="102" text-anchor="middle" class="l">2. Controller</text>
+  <text x="365" y="125" text-anchor="middle" class="sl">@Valid @RequestBody</text>
+  <text x="365" y="145" text-anchor="middle" class="sl">Bean Validation</text>
+  <text x="365" y="165" text-anchor="middle" class="sl">@NotBlank @Email @Min</text>
+
+  <!-- Validation FAIL path -->
+  <line x1="365" y1="195" x2="365" y2="250" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#a3)"/>
+  <rect x="275" y="255" width="180" height="60" rx="10" fill="#ef4444"/>
+  <text x="365" y="280" text-anchor="middle" class="l" font-size="13">FAIL</text>
+  <text x="365" y="300" text-anchor="middle" class="sl">MethodArgument</text>
+  <text x="365" y="300" text-anchor="middle" class="sl">NotValidException</text>
+
+  <!-- Validation PASS path -->
+  <line x1="480" y1="130" x2="540" y2="130" stroke="#16a34a" stroke-width="3" marker-end="url(#a2)"/>
+  <text x="510" y="118" text-anchor="middle" class="mn" fill="#16a34a">PASS</text>
+
+  <!-- Step 3: Service -->
+  <rect x="550" y="75" width="210" height="115" rx="14" fill="#16a34a"/>
+  <text x="655" y="102" text-anchor="middle" class="l">3. Service</text>
+  <text x="655" y="125" text-anchor="middle" class="sl">Business Logic</text>
+  <text x="655" y="145" text-anchor="middle" class="sl">findById(), create()</text>
+  <text x="655" y="165" text-anchor="middle" class="sl">delete(), update()</text>
+
+  <!-- Service Exception path -->
+  <line x1="655" y1="195" x2="655" y2="250" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#a3)"/>
+  <rect x="565" y="255" width="180" height="60" rx="10" fill="#f59e0b"/>
+  <text x="655" y="280" text-anchor="middle" class="l" font-size="13">ERROR</text>
+  <text x="655" y="300" text-anchor="middle" class="sl">ResourceNotFound</text>
+
+  <!-- Service OK path -->
+  <line x1="770" y1="130" x2="830" y2="130" stroke="#16a34a" stroke-width="3" marker-end="url(#a2)"/>
+  <text x="800" y="118" text-anchor="middle" class="mn" fill="#16a34a">OK</text>
+
+  <!-- Step 4: ApiResponse (success) -->
+  <rect x="840" y="75" width="180" height="115" rx="14" fill="#8b5cf6"/>
+  <text x="930" y="102" text-anchor="middle" class="l">4. ApiResponse</text>
+  <text x="930" y="125" text-anchor="middle" class="sl">code: 200/201</text>
+  <text x="930" y="145" text-anchor="middle" class="sl">message: "..."</text>
+  <text x="930" y="165" text-anchor="middle" class="sl">data: { ... }</text>
+
+  <line x1="1030" y1="130" x2="1080" y2="130" stroke="#8b5cf6" stroke-width="3" marker-end="url(#a4)"/>
+
+  <!-- Step 5: Client receives -->
+  <rect x="1090" y="80" width="80" height="100" rx="14" fill="#0ea5e9"/>
+  <text x="1130" y="125" text-anchor="middle" class="l" font-size="14">Client</text>
+  <text x="1130" y="145" text-anchor="middle" class="sl">Nhan</text>
+  <text x="1130" y="160" text-anchor="middle" class="sl">Response</text>
+
+  <!-- GlobalExceptionHandler -->
+  <rect x="280" y="340" width="480" height="130" rx="18" fill="#8b5cf6"/>
+  <rect x="295" y="348" width="450" height="28" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <text x="520" y="368" text-anchor="middle" class="l" font-size="15">@ControllerAdvice — GlobalExceptionHandler</text>
+
+  <rect x="300" y="386" width="210" height="30" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="310" y="406" class="mn" fill="#fbbf24">handleValidation() → 400</text>
+
+  <rect x="300" y="420" width="210" height="30" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="310" y="440" class="mn" fill="#fbbf24">handleNotFound() → 404</text>
+
+  <rect x="530" y="386" width="210" height="30" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="540" y="406" class="mn" fill="#fbbf24">handleDuplicate() → 409</text>
+
+  <rect x="530" y="420" width="210" height="30" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="540" y="440" class="mn" fill="#fbbf24">handleGeneral() → 500</text>
+
+  <!-- Arrows from exceptions to handler -->
+  <line x1="365" y1="315" x2="430" y2="340" stroke="#ef4444" stroke-width="2" marker-end="url(#a3)"/>
+  <line x1="655" y1="315" x2="590" y2="340" stroke="#ef4444" stroke-width="2" marker-end="url(#a3)"/>
+
+  <!-- Arrow from handler to client -->
+  <line x1="770" y1="405" x2="1000" y2="405" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="1000" y1="405" x2="1130" y2="185" stroke="#8b5cf6" stroke-width="2" marker-end="url(#a4)"/>
+  <text x="920" y="395" class="mn" fill="#8b5cf6">ApiResponse (error)</text>
+
+  <!-- Legend -->
+  <rect x="820" y="330" width="350" height="140" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="995" y="355" text-anchor="middle" class="tx" font-weight="700">Ket qua: Moi response deu chuan</text>
+  <line x1="840" y1="370" x2="870" y2="370" stroke="#16a34a" stroke-width="3"/>
+  <text x="880" y="375" class="tx">Luong thanh cong → ApiResponse.success()</text>
+  <line x1="840" y1="395" x2="870" y2="395" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="880" y="400" class="tx">Loi → GlobalExceptionHandler bat</text>
+  <rect x="840" y="415" width="310" height="40" rx="6" fill="#dcfce7"/>
+  <text x="995" y="435" text-anchor="middle" class="tx" fill="#16a34a">Client luon nhan duoc response</text>
+  <text x="995" y="450" text-anchor="middle" class="tx" fill="#16a34a">voi format: code + message + data</text>
+</svg>
