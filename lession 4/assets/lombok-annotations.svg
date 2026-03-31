@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380">
+  <defs>
+    <linearGradient id="bgL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="380" fill="url(#bgL)" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Lombok — Giảm Boilerplate Code</text>
+  <!-- Without Lombok -->
+  <rect x="30" y="55" width="350" height="290" rx="10" fill="none" stroke="#e94560" stroke-width="1.5"/>
+  <text x="205" y="78" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="13" font-weight="bold">Không dùng Lombok (~60 dòng)</text>
+  <text x="45" y="102" fill="#888" font-family="monospace" font-size="9">public class User {</text>
+  <text x="55" y="118" fill="#aaa" font-family="monospace" font-size="9">private Long id;</text>
+  <text x="55" y="134" fill="#aaa" font-family="monospace" font-size="9">private String name;</text>
+  <text x="55" y="150" fill="#aaa" font-family="monospace" font-size="9">private String email;</text>
+  <text x="55" y="170" fill="#e94560" font-family="monospace" font-size="9">// + constructor (2-3 cái)</text>
+  <text x="55" y="186" fill="#e94560" font-family="monospace" font-size="9">// + getter x3</text>
+  <text x="55" y="202" fill="#e94560" font-family="monospace" font-size="9">// + setter x3</text>
+  <text x="55" y="218" fill="#e94560" font-family="monospace" font-size="9">// + toString()</text>
+  <text x="55" y="234" fill="#e94560" font-family="monospace" font-size="9">// + equals()</text>
+  <text x="55" y="250" fill="#e94560" font-family="monospace" font-size="9">// + hashCode()</text>
+  <text x="55" y="266" fill="#e94560" font-family="monospace" font-size="9">// + builder pattern</text>
+  <text x="45" y="286" fill="#888" font-family="monospace" font-size="9">}</text>
+  <text x="205" y="320" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="11">Rất nhiều code lặp lại!</text>
+  <!-- Arrow -->
+  <text x="405" y="200" text-anchor="middle" fill="#6db33f" font-family="Arial,sans-serif" font-size="30">→</text>
+  <!-- With Lombok -->
+  <rect x="430" y="55" width="340" height="290" rx="10" fill="none" stroke="#6db33f" stroke-width="1.5"/>
+  <text x="600" y="78" text-anchor="middle" fill="#6db33f" font-family="Arial,sans-serif" font-size="13" font-weight="bold">Dùng Lombok (~10 dòng)</text>
+  <text x="445" y="110" fill="#6db33f" font-family="monospace" font-size="10">@Getter</text>
+  <text x="445" y="128" fill="#6db33f" font-family="monospace" font-size="10">@Setter</text>
+  <text x="445" y="146" fill="#6db33f" font-family="monospace" font-size="10">@NoArgsConstructor</text>
+  <text x="445" y="164" fill="#6db33f" font-family="monospace" font-size="10">@AllArgsConstructor</text>
+  <text x="445" y="182" fill="#6db33f" font-family="monospace" font-size="10">@Builder</text>
+  <text x="445" y="200" fill="#6db33f" font-family="monospace" font-size="10">@ToString</text>
+  <text x="445" y="218" fill="#6db33f" font-family="monospace" font-size="10">@EqualsAndHashCode</text>
+  <text x="445" y="242" fill="#888" font-family="monospace" font-size="10">public class User {</text>
+  <text x="455" y="260" fill="#aaa" font-family="monospace" font-size="10">private Long id;</text>
+  <text x="455" y="278" fill="#aaa" font-family="monospace" font-size="10">private String name;</text>
+  <text x="455" y="296" fill="#aaa" font-family="monospace" font-size="10">private String email;</text>
+  <text x="445" y="314" fill="#888" font-family="monospace" font-size="10">}</text>
+  <text x="600" y="340" text-anchor="middle" fill="#6db33f" font-family="Arial,sans-serif" font-size="11">Clean, ngắn gọn!</text>
+</svg>

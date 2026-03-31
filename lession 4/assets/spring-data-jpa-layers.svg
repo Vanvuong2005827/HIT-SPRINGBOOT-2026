@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bgS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bgS)" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Kiến trúc Spring Data JPA</text>
+  <!-- Layer 1: Application Code -->
+  <rect x="100" y="55" width="600" height="55" rx="10" fill="#e94560" opacity="0.8"/>
+  <text x="400" y="80" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Application Code (Service Layer)</text>
+  <text x="400" y="98" text-anchor="middle" fill="#ffd" font-family="Arial,sans-serif" font-size="10">Gọi repository.findAll(), save(), deleteById()...</text>
+  <!-- Arrow -->
+  <text x="400" y="125" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="18">▼</text>
+  <!-- Layer 2: Spring Data JPA -->
+  <rect x="100" y="132" width="600" height="55" rx="10" fill="#6db33f" opacity="0.8"/>
+  <text x="400" y="157" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Spring Data JPA</text>
+  <text x="400" y="175" text-anchor="middle" fill="#e0ffe0" font-family="Arial,sans-serif" font-size="10">JpaRepository, CrudRepository — Auto-generate implementation</text>
+  <!-- Arrow -->
+  <text x="400" y="202" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="18">▼</text>
+  <!-- Layer 3: JPA -->
+  <rect x="100" y="209" width="600" height="55" rx="10" fill="#533483" opacity="0.8"/>
+  <text x="400" y="234" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="14" font-weight="bold">JPA (Jakarta Persistence API)</text>
+  <text x="400" y="252" text-anchor="middle" fill="#e0d0ff" font-family="Arial,sans-serif" font-size="10">EntityManager, @Entity, @Table, JPQL — Specification</text>
+  <!-- Arrow -->
+  <text x="400" y="279" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="18">▼</text>
+  <!-- Layer 4: Hibernate -->
+  <rect x="100" y="286" width="600" height="55" rx="10" fill="#0f3460" opacity="0.8"/>
+  <text x="400" y="311" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Hibernate (JPA Provider)</text>
+  <text x="400" y="329" text-anchor="middle" fill="#b0c4de" font-family="Arial,sans-serif" font-size="10">Session, HQL, Caching, Lazy Loading — Implementation</text>
+  <!-- Arrow -->
+  <text x="400" y="356" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="18">▼</text>
+  <!-- Layer 5: JDBC / Database -->
+  <rect x="100" y="363" width="600" height="45" rx="10" fill="#1a1a2e" stroke="#555" stroke-width="1"/>
+  <text x="400" y="390" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="13" font-weight="bold">JDBC → MySQL / PostgreSQL / H2 / Oracle</text>
+</svg>

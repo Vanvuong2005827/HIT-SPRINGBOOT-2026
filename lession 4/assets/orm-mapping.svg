@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+  <defs>
+    <linearGradient id="bgO" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="java" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c23152;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="db" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0a2647;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="hiber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6db33f;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#5a9e2f;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" fill="url(#bgO)" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="18" font-weight="bold">ORM: Object ↔ Table Mapping</text>
+  <!-- Java Object -->
+  <rect x="40" y="60" width="280" height="250" rx="10" fill="url(#java)" opacity="0.15" stroke="#e94560" stroke-width="2"/>
+  <text x="180" y="85" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Java Object</text>
+  <rect x="60" y="100" width="240" height="30" rx="5" fill="url(#java)" opacity="0.6"/>
+  <text x="180" y="120" text-anchor="middle" fill="#fff" font-family="monospace" font-size="12">@Entity class User</text>
+  <text x="70" y="155" fill="#ddd" font-family="monospace" font-size="11">@Id Long id</text>
+  <text x="70" y="178" fill="#ddd" font-family="monospace" font-size="11">String name</text>
+  <text x="70" y="201" fill="#ddd" font-family="monospace" font-size="11">String email</text>
+  <text x="70" y="224" fill="#ddd" font-family="monospace" font-size="11">Integer age</text>
+  <text x="70" y="247" fill="#ddd" font-family="monospace" font-size="11">LocalDate createdAt</text>
+  <text x="70" y="270" fill="#ddd" font-family="monospace" font-size="11">List&lt;Order&gt; orders</text>
+  <!-- Arrows ORM -->
+  <g transform="translate(340, 130)">
+    <rect x="0" y="0" width="120" height="100" rx="8" fill="url(#hiber)" opacity="0.9"/>
+    <text x="60" y="30" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="bold">Hibernate</text>
+    <text x="60" y="50" text-anchor="middle" fill="#e0ffe0" font-family="Arial,sans-serif" font-size="10">JPA Provider</text>
+    <text x="60" y="72" text-anchor="middle" fill="#e0ffe0" font-family="Arial,sans-serif" font-size="9">Auto mapping</text>
+    <text x="60" y="88" text-anchor="middle" fill="#e0ffe0" font-family="Arial,sans-serif" font-size="9">Object ↔ Row</text>
+  </g>
+  <line x1="320" y1="180" x2="340" y2="180" stroke="#6db33f" stroke-width="2" marker-end="url(#arrG)"/>
+  <line x1="460" y1="180" x2="480" y2="180" stroke="#6db33f" stroke-width="2" marker-end="url(#arrG)"/>
+  <!-- Database Table -->
+  <rect x="480" y="60" width="280" height="250" rx="10" fill="url(#db)" opacity="0.15" stroke="#0f3460" stroke-width="2"/>
+  <text x="620" y="85" text-anchor="middle" fill="#5dade2" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Database Table</text>
+  <rect x="500" y="100" width="240" height="30" rx="5" fill="url(#db)" opacity="0.6"/>
+  <text x="620" y="120" text-anchor="middle" fill="#fff" font-family="monospace" font-size="12">TABLE users</text>
+  <text x="510" y="155" fill="#ddd" font-family="monospace" font-size="11">id BIGINT PK</text>
+  <text x="510" y="178" fill="#ddd" font-family="monospace" font-size="11">name VARCHAR(255)</text>
+  <text x="510" y="201" fill="#ddd" font-family="monospace" font-size="11">email VARCHAR(255)</text>
+  <text x="510" y="224" fill="#ddd" font-family="monospace" font-size="11">age INT</text>
+  <text x="510" y="247" fill="#ddd" font-family="monospace" font-size="11">created_at DATE</text>
+  <text x="510" y="270" fill="#ddd" font-family="monospace" font-size="11">→ FK in orders table</text>
+  <!-- Mapping lines -->
+  <line x1="280" y1="155" x2="500" y2="155" stroke="#e94560" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+  <line x1="280" y1="178" x2="500" y2="178" stroke="#e94560" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+  <line x1="280" y1="201" x2="500" y2="201" stroke="#e94560" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+  <line x1="280" y1="224" x2="500" y2="224" stroke="#e94560" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+  <line x1="280" y1="247" x2="500" y2="247" stroke="#e94560" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.4"/>
+  <defs>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6db33f"/>
+    </marker>
+  </defs>
+</svg>

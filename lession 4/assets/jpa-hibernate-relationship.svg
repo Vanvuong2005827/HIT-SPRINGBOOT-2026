@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 300">
+  <defs>
+    <linearGradient id="bgJ" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="750" height="300" fill="url(#bgJ)" rx="12"/>
+  <text x="375" y="32" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="18" font-weight="bold">JPA vs Hibernate — Specification vs Implementation</text>
+  <!-- JPA Spec -->
+  <rect x="40" y="60" width="300" height="200" rx="10" fill="none" stroke="#e94560" stroke-width="2"/>
+  <text x="190" y="85" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="14" font-weight="bold">JPA (Specification)</text>
+  <text x="190" y="110" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="11">Jakarta Persistence API</text>
+  <text x="60" y="140" fill="#ddd" font-family="monospace" font-size="11">• @Entity, @Table</text>
+  <text x="60" y="162" fill="#ddd" font-family="monospace" font-size="11">• @Id, @GeneratedValue</text>
+  <text x="60" y="184" fill="#ddd" font-family="monospace" font-size="11">• @Column, @JoinColumn</text>
+  <text x="60" y="206" fill="#ddd" font-family="monospace" font-size="11">• @OneToMany, @ManyToOne</text>
+  <text x="60" y="228" fill="#ddd" font-family="monospace" font-size="11">• EntityManager interface</text>
+  <text x="60" y="248" fill="#888" font-family="Arial,sans-serif" font-size="10">→ Chỉ định nghĩa "WHAT"</text>
+  <!-- Arrow -->
+  <text x="375" y="145" text-anchor="middle" fill="#6db33f" font-family="Arial,sans-serif" font-size="24">→</text>
+  <text x="375" y="168" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="10">implements</text>
+  <!-- Hibernate -->
+  <rect x="410" y="60" width="300" height="200" rx="10" fill="none" stroke="#6db33f" stroke-width="2"/>
+  <text x="560" y="85" text-anchor="middle" fill="#6db33f" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Hibernate (Implementation)</text>
+  <text x="560" y="110" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="11">JPA Provider (mặc định Spring Boot)</text>
+  <text x="430" y="140" fill="#ddd" font-family="monospace" font-size="11">• SessionFactory</text>
+  <text x="430" y="162" fill="#ddd" font-family="monospace" font-size="11">• HQL (Hibernate Query Lang)</text>
+  <text x="430" y="184" fill="#ddd" font-family="monospace" font-size="11">• Caching (L1, L2)</text>
+  <text x="430" y="206" fill="#ddd" font-family="monospace" font-size="11">• Lazy/Eager Loading</text>
+  <text x="430" y="228" fill="#ddd" font-family="monospace" font-size="11">• DDL Auto (create, update)</text>
+  <text x="430" y="248" fill="#888" font-family="Arial,sans-serif" font-size="10">→ Triển khai cụ thể "HOW"</text>
+</svg>

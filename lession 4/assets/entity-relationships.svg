@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgR)" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="18" font-weight="bold">Entity Relationships trong JPA</text>
+  <!-- OneToOne -->
+  <rect x="30" y="60" width="220" height="130" rx="8" fill="none" stroke="#e94560" stroke-width="1.5"/>
+  <text x="140" y="82" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="13" font-weight="bold">@OneToOne</text>
+  <rect x="45" y="95" width="70" height="35" rx="5" fill="#e94560" opacity="0.3"/>
+  <text x="80" y="117" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10">User</text>
+  <text x="145" y="115" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="16">1 — 1</text>
+  <rect x="165" y="95" width="70" height="35" rx="5" fill="#e94560" opacity="0.3"/>
+  <text x="200" y="117" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10">Profile</text>
+  <text x="140" y="155" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="9">1 User có đúng 1 Profile</text>
+  <text x="140" y="170" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="9">VD: User ↔ UserDetail</text>
+  <!-- OneToMany / ManyToOne -->
+  <rect x="290" y="60" width="220" height="130" rx="8" fill="none" stroke="#6db33f" stroke-width="1.5"/>
+  <text x="400" y="82" text-anchor="middle" fill="#6db33f" font-family="Arial,sans-serif" font-size="13" font-weight="bold">@OneToMany / @ManyToOne</text>
+  <rect x="305" y="95" width="70" height="35" rx="5" fill="#6db33f" opacity="0.3"/>
+  <text x="340" y="117" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10">User</text>
+  <text x="405" y="115" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="16">1 — N</text>
+  <rect x="425" y="95" width="70" height="35" rx="5" fill="#6db33f" opacity="0.3"/>
+  <text x="460" y="117" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10">Order</text>
+  <text x="400" y="155" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="9">1 User có nhiều Orders</text>
+  <text x="400" y="170" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="9">VD: Department ↔ Employees</text>
+  <!-- ManyToMany -->
+  <rect x="550" y="60" width="220" height="130" rx="8" fill="none" stroke="#533483" stroke-width="1.5"/>
+  <text x="660" y="82" text-anchor="middle" fill="#b39ddb" font-family="Arial,sans-serif" font-size="13" font-weight="bold">@ManyToMany</text>
+  <rect x="565" y="95" width="70" height="35" rx="5" fill="#533483" opacity="0.3"/>
+  <text x="600" y="117" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10">Student</text>
+  <text x="665" y="115" text-anchor="middle" fill="#aaa" font-family="Arial,sans-serif" font-size="16">N — N</text>
+  <rect x="685" y="95" width="70" height="35" rx="5" fill="#533483" opacity="0.3"/>
+  <text x="720" y="117" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10">Course</text>
+  <text x="660" y="155" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="9">Nhiều Student ↔ nhiều Course</text>
+  <text x="660" y="170" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="9">Cần bảng trung gian</text>
+  <!-- Database tables illustration -->
+  <text x="400" y="220" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="14" font-weight="bold">Ví dụ: @OneToMany trong Database</text>
+  <!-- Users table -->
+  <rect x="80" y="240" width="250" height="140" rx="8" fill="#0f3460" opacity="0.4" stroke="#5dade2" stroke-width="1"/>
+  <rect x="80" y="240" width="250" height="30" rx="8" fill="#0f3460" opacity="0.6"/>
+  <text x="205" y="260" text-anchor="middle" fill="#5dade2" font-family="Arial,sans-serif" font-size="12" font-weight="bold">TABLE: users</text>
+  <text x="100" y="290" fill="#ddd" font-family="monospace" font-size="10">id    | name      | email</text>
+  <text x="100" y="310" fill="#aaa" font-family="monospace" font-size="10">1     | Nguyen A  | a@mail</text>
+  <text x="100" y="330" fill="#aaa" font-family="monospace" font-size="10">2     | Tran B    | b@mail</text>
+  <text x="100" y="350" fill="#aaa" font-family="monospace" font-size="10">3     | Le C      | c@mail</text>
+  <!-- Arrow FK -->
+  <line x1="330" y1="320" x2="400" y2="320" stroke="#e94560" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="365" y="310" text-anchor="middle" fill="#e94560" font-family="Arial,sans-serif" font-size="9">FK</text>
+  <!-- Orders table -->
+  <rect x="400" y="240" width="340" height="140" rx="8" fill="#0f3460" opacity="0.4" stroke="#5dade2" stroke-width="1"/>
+  <rect x="400" y="240" width="340" height="30" rx="8" fill="#0f3460" opacity="0.6"/>
+  <text x="570" y="260" text-anchor="middle" fill="#5dade2" font-family="Arial,sans-serif" font-size="12" font-weight="bold">TABLE: orders</text>
+  <text x="420" y="290" fill="#ddd" font-family="monospace" font-size="10">id  | product       | user_id (FK)</text>
+  <text x="420" y="310" fill="#aaa" font-family="monospace" font-size="10">1   | Laptop        | 1</text>
+  <text x="420" y="330" fill="#aaa" font-family="monospace" font-size="10">2   | Phone         | 1</text>
+  <text x="420" y="350" fill="#aaa" font-family="monospace" font-size="10">3   | Tablet        | 2</text>
+  <!-- Note -->
+  <text x="400" y="410" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="10">User id=1 (Nguyen A) có 2 orders: Laptop + Phone</text>
+  <text x="400" y="428" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="10">Foreign Key (user_id) nằm ở bảng "nhiều" (orders) — trỏ về bảng "một" (users)</text>
+  <!-- ManyToMany join table hint -->
+  <text x="400" y="465" text-anchor="middle" fill="#b39ddb" font-family="Arial,sans-serif" font-size="10">@ManyToMany cần bảng trung gian: student_course (student_id, course_id)</text>
+  <text x="400" y="485" text-anchor="middle" fill="#888" font-family="Arial,sans-serif" font-size="10">→ JPA tự tạo bảng trung gian khi dùng @JoinTable</text>
+</svg>
