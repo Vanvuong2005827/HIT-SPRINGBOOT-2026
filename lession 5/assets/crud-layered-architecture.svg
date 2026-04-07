@@ -1,0 +1,95 @@
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0d0d1a"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#90caf9"/>
+    </marker>
+  </defs>
+  <rect width="820" height="400" fill="url(#bg3)" rx="12"/>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">CRUD Chuẩn Theo Tầng — Layered Architecture</text>
+
+  <!-- Layer boxes -->
+  <!-- Client -->
+  <rect x="340" y="55" width="140" height="40" rx="6" fill="#7b1fa2" stroke="#ce93d8" stroke-width="1.5"/>
+  <text x="410" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Client / Postman</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="95" x2="410" y2="125" stroke="#90caf9" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Controller -->
+  <rect x="290" y="128" width="240" height="52" rx="6" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+  <text x="410" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">@RestController</text>
+  <text x="410" y="170" text-anchor="middle" font-size="10.5" fill="#90caf9">Validate input • Gọi Service • Trả Response</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="180" x2="410" y2="210" stroke="#90caf9" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Service -->
+  <rect x="265" y="213" width="290" height="52" rx="6" fill="#00695c" stroke="#4db6ac" stroke-width="1.5"/>
+  <text x="410" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">@Service</text>
+  <text x="410" y="255" text-anchor="middle" font-size="10.5" fill="#b2dfdb">Business Logic • @Transactional • Gọi Repository</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="265" x2="410" y2="295" stroke="#90caf9" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Repository -->
+  <rect x="285" y="298" width="250" height="52" rx="6" fill="#e65100" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="410" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">@Repository / JpaRepository</text>
+  <text x="410" y="340" text-anchor="middle" font-size="10.5" fill="#ffe0b2">CRUD • Derived Query • @Query / JOIN FETCH</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="350" x2="410" y2="370" stroke="#90caf9" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Database -->
+  <rect x="330" y="372" width="160" height="22" rx="6" fill="#37474f" stroke="#78909c" stroke-width="1.5"/>
+  <text x="410" y="387" text-anchor="middle" font-size="11" font-weight="bold" fill="#cfd8dc">MySQL Database</text>
+
+  <!-- Left annotation panel -->
+  <rect x="10" y="60" width="255" height="290" rx="8" fill="#ffffff0a" stroke="#ffffff22" stroke-width="1"/>
+  <text x="137" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd54f">Nguyên tắc mỗi tầng</text>
+
+  <text x="25" y="105" font-size="11" font-weight="bold" fill="#42a5f5">Controller nên:</text>
+  <text x="25" y="122" font-size="10" fill="#90caf9">  • Nhận HTTP request</text>
+  <text x="25" y="138" font-size="10" fill="#90caf9">  • @Valid validate đầu vào</text>
+  <text x="25" y="154" font-size="10" fill="#90caf9">  • Gọi đúng 1 Service method</text>
+  <text x="25" y="170" font-size="10" fill="#90caf9">  • Wrap trong ApiResponse</text>
+  <text x="25" y="186" font-size="10" fill="#e57373">  ❌ Không: logic, query DB</text>
+
+  <text x="25" y="213" font-size="11" font-weight="bold" fill="#4db6ac">Service nên:</text>
+  <text x="25" y="230" font-size="10" fill="#b2dfdb">  • Xử lý business logic</text>
+  <text x="25" y="246" font-size="10" fill="#b2dfdb">  • @Transactional khi cần</text>
+  <text x="25" y="262" font-size="10" fill="#b2dfdb">  • Throw Custom Exception</text>
+  <text x="25" y="278" font-size="10" fill="#e57373">  ❌ Không: truy cập HTTP trực tiếp</text>
+
+  <text x="25" y="305" font-size="11" font-weight="bold" fill="#ffb74d">Repository nên:</text>
+  <text x="25" y="322" font-size="10" fill="#ffe0b2">  • Chỉ truy vấn DB</text>
+  <text x="25" y="338" font-size="10" fill="#ffe0b2">  • Derived Query đơn giản</text>
+  <text x="25" y="354" font-size="10" fill="#e57373">  ❌ Không: business logic</text>
+
+  <!-- Right annotation panel -->
+  <rect x="555" y="60" width="255" height="290" rx="8" fill="#ffffff0a" stroke="#ffffff22" stroke-width="1"/>
+  <text x="682" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd54f">DTO Pattern</text>
+
+  <text x="570" y="105" font-size="11" font-weight="bold" fill="#ce93d8">Request DTO:</text>
+  <text x="570" y="122" font-size="10" fill="#e1bee7">  → CreateUserRequest</text>
+  <text x="570" y="138" font-size="10" fill="#e1bee7">  → Có @NotBlank, @Email...</text>
+  <text x="570" y="154" font-size="10" fill="#e1bee7">  → Không expose Entity</text>
+
+  <text x="570" y="182" font-size="11" font-weight="bold" fill="#ce93d8">Response DTO:</text>
+  <text x="570" y="199" font-size="10" fill="#e1bee7">  → UserResponse</text>
+  <text x="570" y="215" font-size="10" fill="#e1bee7">  → Chỉ trả field cần thiết</text>
+  <text x="570" y="231" font-size="10" fill="#e1bee7">  → Ẩn thông tin nhạy cảm</text>
+
+  <text x="570" y="259" font-size="11" font-weight="bold" fill="#ce93d8">Entity:</text>
+  <text x="570" y="276" font-size="10" fill="#e1bee7">  → Không trả trực tiếp API</text>
+  <text x="570" y="292" font-size="10" fill="#e1bee7">  → Dùng MapStruct / thủ công</text>
+  <text x="570" y="308" font-size="10" fill="#e1bee7">  → Convert Entity → DTO</text>
+
+  <text x="570" y="336" font-size="11" font-weight="bold" fill="#ffa726">@Transactional:</text>
+  <text x="570" y="353" font-size="10" fill="#ffe0b2">  → Chỉ đặt ở Service</text>
+
+  <text x="410" y="398" text-anchor="middle" font-size="10.5" fill="#6e7681">Separation of Concerns: mỗi tầng có 1 trách nhiệm duy nhất — dễ bảo trì, dễ test, dễ mở rộng</text>
+</svg>

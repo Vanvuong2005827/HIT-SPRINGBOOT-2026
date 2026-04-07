@@ -1,0 +1,82 @@
+<svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#85e89d"/>
+    </marker>
+  </defs>
+  <rect width="820" height="380" fill="url(#bg)" rx="12"/>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">Swagger UI / OpenAPI 3.0 — Cơ chế hoạt động</text>
+
+  <!-- Spring Boot App box -->
+  <rect x="30" y="58" width="240" height="270" rx="10" fill="#1565c022" stroke="#42a5f566" stroke-width="1.5"/>
+  <text x="150" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#90caf9">Spring Boot App</text>
+
+  <!-- Controller annotations -->
+  <rect x="45" y="92" width="210" height="40" rx="5" fill="#1565c044"/>
+  <text x="150" y="110" text-anchor="middle" font-size="10" fill="#64b5f6">@RestController</text>
+  <text x="150" y="126" text-anchor="middle" font-size="10" fill="#64b5f6">@Operation / @Schema</text>
+
+  <rect x="45" y="138" width="210" height="40" rx="5" fill="#1565c044" opacity="0.8"/>
+  <text x="150" y="156" text-anchor="middle" font-size="10" fill="#64b5f6">UserController</text>
+  <text x="150" y="172" text-anchor="middle" font-size="10" fill="#64b5f6">OrderController</text>
+
+  <rect x="45" y="184" width="210" height="40" rx="5" fill="#1565c044" opacity="0.6"/>
+  <text x="150" y="202" text-anchor="middle" font-size="10" fill="#64b5f6">ProductController</text>
+  <text x="150" y="218" text-anchor="middle" font-size="10" fill="#64b5f6">AuthController</text>
+
+  <!-- springdoc box -->
+  <rect x="45" y="240" width="210" height="40" rx="5" fill="#00695c66" stroke="#4db6ac66" stroke-width="1"/>
+  <text x="150" y="258" text-anchor="middle" font-size="11" font-weight="bold" fill="#80cbc4">springdoc-openapi</text>
+  <text x="150" y="274" text-anchor="middle" font-size="10" fill="#b2dfdb">Tự scan &amp; generate spec</text>
+
+  <!-- Arrow to spec -->
+  <line x1="270" y1="200" x2="340" y2="200" stroke="#85e89d" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="305" y="193" text-anchor="middle" font-size="10" fill="#85e89d">auto-generate</text>
+
+  <!-- OpenAPI Spec box -->
+  <rect x="340" y="130" width="180" height="140" rx="10" fill="#f57f1722" stroke="#ffa72688" stroke-width="1.5"/>
+  <text x="430" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffc107">OpenAPI 3.0 Spec</text>
+  <text x="430" y="175" text-anchor="middle" font-size="10" fill="#ffe0b2">/v3/api-docs</text>
+  <line x1="355" y1="183" x2="505" y2="183" stroke="#ffa72644" stroke-width="1"/>
+  <text x="365" y="200" font-size="9.5" fill="#ffcc80" font-family="monospace">openapi: "3.0.0"</text>
+  <text x="365" y="216" font-size="9.5" fill="#ffcc80" font-family="monospace">info:</text>
+  <text x="365" y="232" font-size="9.5" fill="#ffcc80" font-family="monospace">  title: "HIT API"</text>
+  <text x="365" y="248" font-size="9.5" fill="#ffcc80" font-family="monospace">paths:</text>
+  <text x="365" y="264" font-size="9.5" fill="#ffcc80" font-family="monospace">  /api/users: ...</text>
+
+  <!-- Arrow to Swagger UI -->
+  <line x1="520" y1="200" x2="590" y2="200" stroke="#85e89d" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="555" y="193" text-anchor="middle" font-size="10" fill="#85e89d">renders</text>
+
+  <!-- Swagger UI box -->
+  <rect x="590" y="90" width="210" height="250" rx="10" fill="#00695c22" stroke="#4db6ac66" stroke-width="1.5"/>
+  <text x="695" y="118" text-anchor="middle" font-size="13" font-weight="bold" fill="#4db6ac">Swagger UI</text>
+  <text x="695" y="136" text-anchor="middle" font-size="10" fill="#b2dfdb">/swagger-ui.html</text>
+
+  <!-- Fake Swagger UI content -->
+  <rect x="605" y="148" width="180" height="28" rx="4" fill="#2e7d3244"/>
+  <text x="695" y="159" text-anchor="middle" font-size="9.5" fill="#a5d6a7">GET  /api/users</text>
+  <text x="695" y="172" text-anchor="middle" font-size="9" fill="#81c784">Lấy danh sách users</text>
+
+  <rect x="605" y="182" width="180" height="28" rx="4" fill="#1565c044"/>
+  <text x="695" y="193" text-anchor="middle" font-size="9.5" fill="#90caf9">POST /api/users</text>
+  <text x="695" y="206" text-anchor="middle" font-size="9" fill="#64b5f6">Tạo user mới</text>
+
+  <rect x="605" y="216" width="180" height="28" rx="4" fill="#f57f1733"/>
+  <text x="695" y="227" text-anchor="middle" font-size="9.5" fill="#ffa726">PUT  /api/users/{id}</text>
+  <text x="695" y="240" text-anchor="middle" font-size="9" fill="#ffcc80">Cập nhật user</text>
+
+  <rect x="605" y="250" width="180" height="28" rx="4" fill="#b71c1c44"/>
+  <text x="695" y="261" text-anchor="middle" font-size="9.5" fill="#e57373">DELETE /api/users/{id}</text>
+  <text x="695" y="274" text-anchor="middle" font-size="9" fill="#ef9a9a">Xóa user</text>
+
+  <rect x="605" y="286" width="180" height="32" rx="4" fill="#006064aa" stroke="#00bcd4" stroke-width="1"/>
+  <text x="695" y="306" text-anchor="middle" font-size="10" font-weight="bold" fill="#00e5ff">▶ Try it out!</text>
+
+  <!-- Footer -->
+  <text x="410" y="360" text-anchor="middle" font-size="11" fill="#6e7681">Developer gõ /swagger-ui.html → thấy toàn bộ API, test trực tiếp — không cần Postman</text>
+</svg>

@@ -1,0 +1,97 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#533483;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="iGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00a8cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0077b6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b4d8;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#48cae4;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffffff">ACID Properties — Tính chất của Transaction</text>
+
+  <!-- A - Atomicity -->
+  <rect x="30" y="70" width="170" height="310" rx="10" fill="url(#aGrad)" opacity="0.92"/>
+  <text x="115" y="105" text-anchor="middle" font-size="32" font-weight="bold" fill="#fff">A</text>
+  <text x="115" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFD1D1">Atomicity</text>
+  <text x="115" y="148" text-anchor="middle" font-size="11" fill="#ffe0e0">Tính nguyên tố</text>
+  <line x1="55" y1="162" x2="175" y2="162" stroke="#ffffff44" stroke-width="1"/>
+  <text x="115" y="183" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Hoặc tất cả</text>
+  <text x="115" y="200" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">hoặc không gì cả</text>
+  <text x="115" y="228" text-anchor="middle" font-size="10.5" fill="#FFD1D1">Nếu 1 bước thất bại</text>
+  <text x="115" y="246" text-anchor="middle" font-size="10.5" fill="#FFD1D1">→ ROLLBACK toàn bộ</text>
+  <rect x="55" y="268" width="120" height="18" rx="4" fill="#ffffff22"/>
+  <text x="115" y="281" text-anchor="middle" font-size="10" fill="#fff">Ví dụ: Chuyển tiền</text>
+  <text x="115" y="300" text-anchor="middle" font-size="10" fill="#FFD1D1">Trừ A + Cộng B</text>
+  <text x="115" y="318" text-anchor="middle" font-size="10" fill="#FFD1D1">= 1 atomic unit</text>
+  <text x="115" y="342" text-anchor="middle" font-size="24">⚛️</text>
+
+  <!-- C - Consistency -->
+  <rect x="215" y="70" width="170" height="310" rx="10" fill="url(#cGrad)" opacity="0.92"/>
+  <text x="300" y="105" text-anchor="middle" font-size="32" font-weight="bold" fill="#fff">C</text>
+  <text x="300" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#D4B8FF">Consistency</text>
+  <text x="300" y="148" text-anchor="middle" font-size="11" fill="#e8d8ff">Tính nhất quán</text>
+  <line x1="240" y1="162" x2="360" y2="162" stroke="#ffffff44" stroke-width="1"/>
+  <text x="300" y="183" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">DB luôn ở trạng</text>
+  <text x="300" y="200" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">thái hợp lệ</text>
+  <text x="300" y="228" text-anchor="middle" font-size="10.5" fill="#D4B8FF">Trước và sau TX</text>
+  <text x="300" y="246" text-anchor="middle" font-size="10.5" fill="#D4B8FF">đều thỏa constraint</text>
+  <rect x="240" y="268" width="120" height="18" rx="4" fill="#ffffff22"/>
+  <text x="300" y="281" text-anchor="middle" font-size="10" fill="#fff">Ví dụ: NOT NULL</text>
+  <text x="300" y="300" text-anchor="middle" font-size="10" fill="#D4B8FF">UNIQUE, FK</text>
+  <text x="300" y="318" text-anchor="middle" font-size="10" fill="#D4B8FF">luôn được đảm bảo</text>
+  <text x="300" y="342" text-anchor="middle" font-size="24">⚖️</text>
+
+  <!-- I - Isolation -->
+  <rect x="400" y="70" width="170" height="310" rx="10" fill="url(#iGrad)" opacity="0.92"/>
+  <text x="485" y="105" text-anchor="middle" font-size="32" font-weight="bold" fill="#fff">I</text>
+  <text x="485" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#B8E8FF">Isolation</text>
+  <text x="485" y="148" text-anchor="middle" font-size="11" fill="#cceeff">Tính độc lập</text>
+  <line x1="425" y1="162" x2="545" y2="162" stroke="#ffffff44" stroke-width="1"/>
+  <text x="485" y="183" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">TX chạy song song</text>
+  <text x="485" y="200" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">không ảnh hưởng nhau</text>
+  <text x="485" y="228" text-anchor="middle" font-size="10.5" fill="#B8E8FF">Dirty Read, Non-</text>
+  <text x="485" y="246" text-anchor="middle" font-size="10.5" fill="#B8E8FF">Repeatable, Phantom</text>
+  <rect x="425" y="268" width="120" height="18" rx="4" fill="#ffffff22"/>
+  <text x="485" y="281" text-anchor="middle" font-size="10" fill="#fff">Isolation Level:</text>
+  <text x="485" y="300" text-anchor="middle" font-size="10" fill="#B8E8FF">READ_COMMITTED</text>
+  <text x="485" y="318" text-anchor="middle" font-size="10" fill="#B8E8FF">SERIALIZABLE...</text>
+  <text x="485" y="342" text-anchor="middle" font-size="24">🔒</text>
+
+  <!-- D - Durability -->
+  <rect x="585" y="70" width="185" height="310" rx="10" fill="url(#dGrad)" opacity="0.88"/>
+  <text x="677" y="105" text-anchor="middle" font-size="32" font-weight="bold" fill="#003049">D</text>
+  <text x="677" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#003049">Durability</text>
+  <text x="677" y="148" text-anchor="middle" font-size="11" fill="#003049">Tính bền vững</text>
+  <line x1="610" y1="162" x2="745" y2="162" stroke="#00304944" stroke-width="1"/>
+  <text x="677" y="183" text-anchor="middle" font-size="11" fill="#003049" font-weight="bold">Sau COMMIT dữ liệu</text>
+  <text x="677" y="200" text-anchor="middle" font-size="11" fill="#003049" font-weight="bold">được lưu vĩnh viễn</text>
+  <text x="677" y="228" text-anchor="middle" font-size="10.5" fill="#003049">Kể cả khi server</text>
+  <text x="677" y="246" text-anchor="middle" font-size="10.5" fill="#003049">crash / mất điện</text>
+  <rect x="614" y="268" width="126" height="18" rx="4" fill="#00304922"/>
+  <text x="677" y="281" text-anchor="middle" font-size="10" fill="#003049">Đảm bảo bởi:</text>
+  <text x="677" y="300" text-anchor="middle" font-size="10" fill="#003049">WAL (Write-Ahead</text>
+  <text x="677" y="318" text-anchor="middle" font-size="10" fill="#003049">Logging)</text>
+  <text x="677" y="342" text-anchor="middle" font-size="24">💾</text>
+
+  <!-- Footer -->
+  <text x="400" y="400" text-anchor="middle" font-size="11" fill="#aaaacc">ACID đảm bảo tính toàn vẹn dữ liệu trong hệ thống ngân hàng, thương mại điện tử, và mọi hệ thống quan trọng</text>
+</svg>

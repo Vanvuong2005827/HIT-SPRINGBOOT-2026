@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="460" fill="url(#bg2)" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">N+1 Query Problem — Vấn đề hiệu năng phổ biến</text>
+
+  <!-- ==== N+1 Problem Side ==== -->
+  <rect x="20" y="55" width="370" height="380" rx="10" fill="#b71c1c18" stroke="#e5737388" stroke-width="1.5"/>
+  <text x="205" y="82" text-anchor="middle" font-size="14" font-weight="bold" fill="#e57373">❌ VẤN ĐỀ — N+1 Query</text>
+  <text x="205" y="100" text-anchor="middle" font-size="11" fill="#ef9a9a">FetchType.LAZY không đúng cách</text>
+
+  <!-- Query 1 -->
+  <rect x="35" y="115" width="340" height="32" rx="5" fill="#37474f"/>
+  <text x="55" y="131" font-size="10" fill="#b0bec5">Query 1:</text>
+  <text x="55" y="144" font-size="10" fill="#80cbc4" font-family="monospace">SELECT * FROM orders — lấy 10 orders</text>
+
+  <!-- Arrow -->
+  <text x="205" y="165" text-anchor="middle" font-size="12" fill="#ffa726">↓ Duyệt qua từng order:</text>
+
+  <!-- N queries -->
+  <rect x="35" y="175" width="340" height="30" rx="5" fill="#37474f"/>
+  <text x="55" y="194" font-size="10" fill="#e57373" font-family="monospace">Query 2: SELECT * FROM users WHERE id = 1</text>
+  <rect x="35" y="210" width="340" height="30" rx="5" fill="#37474f" opacity="0.8"/>
+  <text x="55" y="229" font-size="10" fill="#e57373" font-family="monospace">Query 3: SELECT * FROM users WHERE id = 2</text>
+  <rect x="35" y="245" width="340" height="30" rx="5" fill="#37474f" opacity="0.6"/>
+  <text x="55" y="264" font-size="10" fill="#e57373" font-family="monospace">Query 4: SELECT * FROM users WHERE id = 3</text>
+  <text x="205" y="292" text-anchor="middle" font-size="18" fill="#e57373">...</text>
+  <rect x="35" y="303" width="340" height="30" rx="5" fill="#37474f" opacity="0.4"/>
+  <text x="55" y="322" font-size="10" fill="#e57373" font-family="monospace">Query 11: SELECT * FROM users WHERE id = 10</text>
+
+  <!-- Count box -->
+  <rect x="35" y="345" width="340" height="50" rx="8" fill="#b71c1c55" stroke="#e57373" stroke-width="1"/>
+  <text x="205" y="368" text-anchor="middle" font-size="13" font-weight="bold" fill="#e57373">Tổng: 1 + 10 = 11 Queries! 🔴</text>
+  <text x="205" y="387" text-anchor="middle" font-size="11" fill="#ef9a9a">100 orders → 101 queries, 1000 → 1001...</text>
+
+  <!-- ==== Solution Side ==== -->
+  <rect x="410" y="55" width="370" height="380" rx="10" fill="#1b5e2018" stroke="#66bb6a88" stroke-width="1.5"/>
+  <text x="595" y="82" text-anchor="middle" font-size="14" font-weight="bold" fill="#81c784">✅ GIẢI PHÁP — JOIN FETCH</text>
+  <text x="595" y="100" text-anchor="middle" font-size="11" fill="#a5d6a7">@Query với JOIN FETCH hoặc @EntityGraph</text>
+
+  <!-- Solution Query 1 -->
+  <rect x="425" y="115" width="340" height="76" rx="5" fill="#37474f"/>
+  <text x="445" y="134" font-size="10" fill="#b0bec5">Cách 1 — JPQL JOIN FETCH:</text>
+  <text x="445" y="152" font-size="10" fill="#80cbc4" font-family="monospace">@Query("SELECT o FROM Order o</text>
+  <text x="445" y="168" font-size="10" fill="#80cbc4" font-family="monospace">  JOIN FETCH o.user</text>
+  <text x="445" y="184" font-size="10" fill="#80cbc4" font-family="monospace">  WHERE o.status = :status")</text>
+
+  <!-- Arrow -->
+  <text x="595" y="210" text-anchor="middle" font-size="12" fill="#ffa726">↓ Chỉ 1 câu SQL được chạy:</text>
+
+  <!-- Single query result -->
+  <rect x="425" y="220" width="340" height="56" rx="5" fill="#37474f"/>
+  <text x="445" y="240" font-size="10" fill="#a5d6a7" font-family="monospace">SELECT o.*, u.*</text>
+  <text x="445" y="256" font-size="10" fill="#a5d6a7" font-family="monospace">FROM orders o</text>
+  <text x="445" y="272" font-size="10" fill="#a5d6a7" font-family="monospace">JOIN users u ON o.user_id = u.id</text>
+
+  <!-- Solution 2 -->
+  <rect x="425" y="290" width="340" height="60" rx="5" fill="#37474f" opacity="0.9"/>
+  <text x="445" y="308" font-size="10" fill="#b0bec5">Cách 2 — @EntityGraph:</text>
+  <text x="445" y="326" font-size="10" fill="#80cbc4" font-family="monospace">@EntityGraph(attributePaths = {"user"})</text>
+  <text x="445" y="344" font-size="10" fill="#80cbc4" font-family="monospace">List&lt;Order&gt; findAll();</text>
+
+  <!-- Count box success  -->
+  <rect x="425" y="362" width="340" height="50" rx="8" fill="#1b5e2055" stroke="#66bb6a" stroke-width="1"/>
+  <text x="595" y="385" text-anchor="middle" font-size="13" font-weight="bold" fill="#81c784">Tổng: 1 Query duy nhất! 🟢</text>
+  <text x="595" y="405" text-anchor="middle" font-size="11" fill="#a5d6a7">10 orders, 100, 1000 → vẫn chỉ 1 query</text>
+
+  <!-- Footer -->
+  <text x="400" y="448" text-anchor="middle" font-size="10.5" fill="#6e7681">N+1 xảy ra khi LAZY load collection trong vòng lặp — luôn dùng JOIN FETCH để load trước</text>
+</svg>

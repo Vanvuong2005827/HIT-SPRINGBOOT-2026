@@ -1,0 +1,80 @@
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0c29"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#64b5f6"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="400" fill="url(#bg)" rx="12"/>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">AOP — 5 Loại Advice &amp; Khi Nào Chạy</text>
+
+  <!-- Method execution timeline -->
+  <text x="35" y="85" font-size="11" fill="#90a4ae">Method: UserService.createUser(request)</text>
+
+  <!-- Timeline bar -->
+  <rect x="35" y="95" width="750" height="38" rx="6" fill="#1565c0aa" stroke="#42a5f5" stroke-width="1.5"/>
+  <!-- Start marker -->
+  <line x1="100" y1="90" x2="100" y2="140" stroke="#ffffff55" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="100" y="88" text-anchor="middle" font-size="10" fill="#90a4ae">method start</text>
+  <!-- Exception marker -->
+  <line x1="500" y1="90" x2="500" y2="140" stroke="#e5737388" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="500" y="88" text-anchor="middle" font-size="10" fill="#e57373">exception?</text>
+  <!-- End marker -->
+  <line x1="700" y1="90" x2="700" y2="140" stroke="#81c78488" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="700" y="88" text-anchor="middle" font-size="10" fill="#81c784">method end</text>
+
+  <text x="410" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Business Logic chạy ở đây</text>
+
+  <!-- @Before -->
+  <rect x="35" y="148" width="130" height="54" rx="6" fill="#6a1b9a" stroke="#ba68c8" stroke-width="1.5"/>
+  <text x="100" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">@Before</text>
+  <text x="100" y="188" text-anchor="middle" font-size="10" fill="#ce93d8">Trước khi method chạy</text>
+  <text x="100" y="200" text-anchor="middle" font-size="10" fill="#e1bee7">Log input, security check</text>
+
+  <!-- @AfterReturning -->
+  <rect x="565" y="148" width="150" height="54" rx="6" fill="#1b5e20" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="640" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">@AfterReturning</text>
+  <text x="640" y="188" text-anchor="middle" font-size="10" fill="#a5d6a7">Sau khi thành công</text>
+  <text x="640" y="200" text-anchor="middle" font-size="10" fill="#c8e6c9">Log kết quả trả về</text>
+
+  <!-- @AfterThrowing -->
+  <rect x="370" y="148" width="150" height="54" rx="6" fill="#b71c1c" stroke="#e57373" stroke-width="1.5"/>
+  <text x="445" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">@AfterThrowing</text>
+  <text x="445" y="188" text-anchor="middle" font-size="10" fill="#ef9a9a">Khi có exception</text>
+  <text x="445" y="200" text-anchor="middle" font-size="10" fill="#FFCDD2">Log lỗi, alert</text>
+
+  <!-- @After -->
+  <rect x="200" y="148" width="140" height="54" rx="6" fill="#37474f" stroke="#78909c" stroke-width="1.5"/>
+  <text x="270" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">@After</text>
+  <text x="270" y="188" text-anchor="middle" font-size="10" fill="#b0bec5">"Finally" — luôn chạy</text>
+  <text x="270" y="200" text-anchor="middle" font-size="10" fill="#cfd8dc">Dù thành công hay lỗi</text>
+
+  <!-- @Around (full wrap) -->
+  <rect x="35" y="220" width="750" height="60" rx="8" fill="#e65100" stroke="#ffa726" stroke-width="2" opacity="0.85"/>
+  <text x="410" y="245" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">@Around — Bao bọc TOÀN BỘ method execution</text>
+  <text x="410" y="265" text-anchor="middle" font-size="11" fill="#ffe0b2">Kiểm soát hoàn toàn: quyết định có gọi method không, đo thời gian, thay đổi args/return value</text>
+
+  <!-- Arrows from @Before to timeline -->
+  <line x1="100" y1="148" x2="100" y2="133" stroke="#ba68c8" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="640" y1="148" x2="700" y2="133" stroke="#66bb6a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="445" y1="148" x2="500" y2="133" stroke="#e57373" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="270" y1="148" x2="270" y2="133" stroke="#78909c" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Comparison table -->
+  <rect x="35" y="300" width="750" height="82" rx="8" fill="#ffffff08" stroke="#ffffff22" stroke-width="1"/>
+  <text x="410" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd54f">Tóm tắt chọn Advice</text>
+  <text x="60" y="340" font-size="10" fill="#ce93d8">@Before</text>
+  <text x="125" y="340" font-size="10" fill="#cfd8dc">→ Validate args trước khi execute, kiểm tra quyền, log input</text>
+  <text x="60" y="358" font-size="10" fill="#a5d6a7">@AfterReturning</text>
+  <text x="155" y="358" font-size="10" fill="#cfd8dc">→ Log kết quả thành công, trigger notification</text>
+  <text x="60" y="376" font-size="10" fill="#ef9a9a">@AfterThrowing</text>
+  <text x="155" y="376" font-size="10" fill="#cfd8dc">→ Log lỗi, gửi alert, metrics cho errors</text>
+  <text x="390" y="340" font-size="10" fill="#b0bec5">@After</text>
+  <text x="430" y="340" font-size="10" fill="#cfd8dc">→ Cleanup resource (như finally block)</text>
+  <text x="390" y="358" font-size="10" fill="#ffa726">@Around</text>
+  <text x="430" y="358" font-size="10" fill="#cfd8dc">→ Đo hiệu năng, transaction, caching, retry logic</text>
+</svg>

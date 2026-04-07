@@ -1,0 +1,99 @@
+<svg viewBox="0 0 820 460" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="100%" style="stop-color:#24243e"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#90caf9"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ffa726"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="460" fill="url(#bg)" rx="12"/>
+  <text x="410" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">Spring AOP — Kiến trúc &amp; Luồng xử lý</text>
+
+  <!-- WITHOUT AOP label -->
+  <text x="185" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#e57373">❌ Không có AOP — Code lẫn lộn</text>
+  <!-- WITH AOP label -->
+  <text x="620" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#81c784">✅ Có AOP — Tách biệt concerns</text>
+
+  <!-- === LEFT: WITHOUT AOP === -->
+  <!-- Method boxes with embedded cross-cutting code -->
+  <rect x="20" y="75" width="330" height="90" rx="8" fill="#b71c1c22" stroke="#e5737366" stroke-width="1.5"/>
+  <text x="35" y="96" font-size="11" font-weight="bold" fill="#ef9a9a">UserService.createUser()</text>
+  <text x="35" y="115" font-size="10" fill="#e57373">  log.info("Start createUser")  ← logging</text>
+  <text x="35" y="131" font-size="10" fill="#fff">  // business logic...</text>
+  <text x="35" y="147" font-size="10" fill="#e57373">  log.info("End createUser")    ← logging</text>
+  <text x="35" y="163" font-size="10" fill="#ffab40">  stopwatch.stop()               ← perf</text>
+
+  <rect x="20" y="175" width="330" height="90" rx="8" fill="#b71c1c22" stroke="#e5737366" stroke-width="1.5"/>
+  <text x="35" y="196" font-size="11" font-weight="bold" fill="#ef9a9a">OrderService.placeOrder()</text>
+  <text x="35" y="215" font-size="10" fill="#e57373">  log.info("Start placeOrder")  ← logging</text>
+  <text x="35" y="231" font-size="10" fill="#fff">  // business logic...</text>
+  <text x="35" y="247" font-size="10" fill="#e57373">  log.info("End placeOrder")    ← logging</text>
+  <text x="35" y="263" font-size="10" fill="#ffab40">  stopwatch.stop()               ← perf</text>
+
+  <rect x="20" y="275" width="330" height="90" rx="8" fill="#b71c1c22" stroke="#e5737366" stroke-width="1.5"/>
+  <text x="35" y="296" font-size="11" font-weight="bold" fill="#ef9a9a">ProductService.delete()</text>
+  <text x="35" y="315" font-size="10" fill="#e57373">  log.info("Start delete")      ← logging</text>
+  <text x="35" y="331" font-size="10" fill="#fff">  // business logic...</text>
+  <text x="35" y="347" font-size="10" fill="#e57373">  log.info("End delete")        ← logging</text>
+  <text x="35" y="363" font-size="10" fill="#ffab40">  stopwatch.stop()               ← perf</text>
+
+  <rect x="20" y="380" width="330" height="38" rx="6" fill="#b71c1c55" stroke="#e57373" stroke-width="1"/>
+  <text x="185" y="404" text-anchor="middle" font-size="11" fill="#ef9a9a">Lặp lại code ở MỌI service method 😩</text>
+
+  <!-- === RIGHT: WITH AOP === -->
+  <!-- Business-only service boxes -->
+  <rect x="500" y="75" width="160" height="60" rx="8" fill="#1565c044" stroke="#42a5f566" stroke-width="1.5"/>
+  <text x="580" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#90caf9">UserService</text>
+  <text x="580" y="118" text-anchor="middle" font-size="10" fill="#64b5f6">createUser() ← chỉ business</text>
+
+  <rect x="500" y="155" width="160" height="60" rx="8" fill="#1565c044" stroke="#42a5f566" stroke-width="1.5"/>
+  <text x="580" y="180" text-anchor="middle" font-size="11" font-weight="bold" fill="#90caf9">OrderService</text>
+  <text x="580" y="198" text-anchor="middle" font-size="10" fill="#64b5f6">placeOrder() ← chỉ business</text>
+
+  <rect x="500" y="235" width="160" height="60" rx="8" fill="#1565c044" stroke="#42a5f566" stroke-width="1.5"/>
+  <text x="580" y="260" text-anchor="middle" font-size="11" font-weight="bold" fill="#90caf9">ProductService</text>
+  <text x="580" y="278" text-anchor="middle" font-size="10" fill="#64b5f6">delete() ← chỉ business</text>
+
+  <!-- AOP Aspect box - cutting across -->
+  <rect x="675" y="55" width="135" height="260" rx="10" fill="#f57f1722" stroke="#ffa72688" stroke-width="2"/>
+  <text x="742" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffc107">@Aspect</text>
+  <text x="742" y="100" text-anchor="middle" font-size="10" fill="#ffd54f">LoggingAspect</text>
+
+  <line x1="742" y1="110" x2="742" y2="130" stroke="#ffa72655" stroke-width="1"/>
+
+  <rect x="685" y="132" width="115" height="30" rx="4" fill="#e65100aa"/>
+  <text x="742" y="151" text-anchor="middle" font-size="10" fill="#fff">@Before</text>
+
+  <rect x="685" y="168" width="115" height="30" rx="4" fill="#e6510088"/>
+  <text x="742" y="187" text-anchor="middle" font-size="10" fill="#fff">@AfterReturning</text>
+
+  <rect x="685" y="204" width="115" height="30" rx="4" fill="#e6510066"/>
+  <text x="742" y="223" text-anchor="middle" font-size="10" fill="#fff">@AfterThrowing</text>
+
+  <rect x="685" y="240" width="115" height="30" rx="4" fill="#e6510044"/>
+  <text x="742" y="259" text-anchor="middle" font-size="10" fill="#fff">@Around</text>
+
+  <!-- Horizontal crossing arrows from Aspect to each Service -->
+  <line x1="682" y1="105" x2="662" y2="105" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="662" y1="105" x2="662" y2="185" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="662" y1="185" x2="660" y2="185" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrOrange)"/>
+
+  <line x1="682" y1="200" x2="660" y2="200" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrOrange)"/>
+
+  <line x1="682" y1="265" x2="662" y2="265" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="662" y1="185" x2="662" y2="265" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="662" y1="265" x2="660" y2="265" stroke="#ffa726" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrOrange)"/>
+
+  <rect x="480" y="318" width="330" height="38" rx="6" fill="#1b5e2055" stroke="#66bb6a" stroke-width="1"/>
+  <text x="645" y="342" text-anchor="middle" font-size="11" fill="#a5d6a7">Aspect tự động "chặn" mọi method — DRY ✅</text>
+
+  <!-- Bottom: Concepts row -->
+  <rect x="20" y="432" width="780" height="20" rx="4" fill="#ffffff09"/>
+  <text x="410" y="446" text-anchor="middle" font-size="10.5" fill="#90a4ae">Aspect = class chứa cross-cutting logic | JoinPoint = điểm bị chặn | Pointcut = biểu thức chọn JoinPoint | Advice = code chạy tại JoinPoint</text>
+</svg>

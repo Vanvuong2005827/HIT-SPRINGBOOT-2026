@@ -1,0 +1,77 @@
+<svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="100%" style="stop-color:#302b63"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#64b5f6"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#81c784"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e57373"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="440" fill="url(#bg)" rx="12"/>
+  <text x="410" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">Transaction Flow — Luồng xử lý Transaction</text>
+
+  <!-- BEGIN TRANSACTION box -->
+  <rect x="330" y="60" width="160" height="44" rx="8" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+  <text x="410" y="87" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">BEGIN TRANSACTION</text>
+
+  <!-- Arrow down -->
+  <line x1="410" y1="104" x2="410" y2="145" stroke="#64b5f6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- SQL Operations yellow label -->
+  <rect x="310" y="150" width="200" height="110" rx="8" fill="#f57f17" opacity="0.85" stroke="#ffd54f" stroke-width="1.5"/>
+  <text x="410" y="174" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">SQL Operations</text>
+  <text x="410" y="196" text-anchor="middle" font-size="11" fill="#fff">① UPDATE accounts</text>
+  <text x="410" y="214" text-anchor="middle" font-size="11" fill="#fff">    SET balance = balance - 500</text>
+  <text x="410" y="232" text-anchor="middle" font-size="11" fill="#fff">② UPDATE accounts</text>
+  <text x="410" y="250" text-anchor="middle" font-size="11" fill="#fff">    SET balance = balance + 500</text>
+
+  <!-- Arrow down to check -->
+  <line x1="410" y1="260" x2="410" y2="300" stroke="#64b5f6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <polygon points="410,305 480,335 410,365 340,335" fill="#37474f" stroke="#90a4ae" stroke-width="1.5"/>
+  <text x="410" y="331" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Thành công?</text>
+  <text x="410" y="347" text-anchor="middle" font-size="10" fill="#b0bec5">Lỗi xảy ra?</text>
+
+  <!-- SUCCESS path -->
+  <line x1="480" y1="335" x2="620" y2="335" stroke="#81c784" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="550" y="325" text-anchor="middle" font-size="11" fill="#81c784" font-weight="bold">✅ Thành công</text>
+  <rect x="620" y="308" width="130" height="54" rx="8" fill="#1b5e20" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="685" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#a5d6a7">COMMIT</text>
+  <text x="685" y="352" text-anchor="middle" font-size="10" fill="#c8e6c9">Lưu vĩnh viễn</text>
+
+  <!-- FAIL path -->
+  <line x1="340" y1="335" x2="190" y2="335" stroke="#e57373" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="265" y="325" text-anchor="middle" font-size="11" fill="#e57373" font-weight="bold">❌ Lỗi</text>
+  <rect x="60" y="308" width="130" height="54" rx="8" fill="#b71c1c" stroke="#e57373" stroke-width="1.5"/>
+  <text x="125" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFCDD2">ROLLBACK</text>
+  <text x="125" y="352" text-anchor="middle" font-size="10" fill="#FFCDD2">Hoàn tác tất cả</text>
+
+  <!-- DB state boxes -->
+  <rect x="580" y="385" width="170" height="40" rx="6" fill="#1b5e2044" stroke="#66bb6a" stroke-width="1"/>
+  <text x="665" y="410" text-anchor="middle" font-size="11" fill="#81c784">DB ở trạng thái mới ✓</text>
+
+  <rect x="50" y="385" width="170" height="40" rx="6" fill="#b71c1c44" stroke="#e57373" stroke-width="1"/>
+  <text x="135" y="410" text-anchor="middle" font-size="11" fill="#e57373">DB không thay đổi ✗</text>
+
+  <!-- Annotation: @Transactional -->
+  <rect x="5" y="60" width="240" height="120" rx="8" fill="#ffffff11" stroke="#ffffff33" stroke-width="1"/>
+  <text x="125" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd54f">@Transactional</text>
+  <text x="125" y="102" text-anchor="middle" font-size="10" fill="#e0e0e0">Spring tự động:</text>
+  <text x="125" y="120" text-anchor="middle" font-size="10" fill="#b0bec5">• Gọi BEGIN trước method</text>
+  <text x="125" y="138" text-anchor="middle" font-size="10" fill="#b0bec5">• Gọi COMMIT sau method</text>
+  <text x="125" y="156" text-anchor="middle" font-size="10" fill="#b0bec5">• Gọi ROLLBACK khi exception</text>
+
+  <!-- Footer note -->
+  <text x="410" y="430" text-anchor="middle" font-size="10.5" fill="#90a4ae">
+    COMMIT = xác nhận thay đổi vĩnh viễn | ROLLBACK = hủy bỏ tất cả thay đổi trong transaction
+  </text>
+</svg>
