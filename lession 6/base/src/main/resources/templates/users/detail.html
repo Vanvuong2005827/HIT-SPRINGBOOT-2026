@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết User</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{layout/base :: header}"></div>
+
+    <main>
+        <h1>Chi tiết User</h1>
+
+        <div class="detail-card">
+            <div class="detail-row">
+                <label>ID:</label>
+                <span th:text="${user.id}"></span>
+            </div>
+            <div class="detail-row">
+                <label>Tên:</label>
+                <span th:text="${user.name}"></span>
+            </div>
+            <div class="detail-row">
+                <label>Email:</label>
+                <span th:text="${user.email}"></span>
+            </div>
+            <div class="detail-row">
+                <label>Số điện thoại:</label>
+                <span th:text="${user.phoneNumber} ?: 'Chưa có SĐT'"></span>
+            </div>
+            <div class="detail-row">
+                <label>Trạng thái:</label>
+                <span th:if="${user.active}" class="badge-active">Active</span>
+                <span th:unless="${user.active}" class="badge-inactive">Inactive</span>
+            </div>
+            <div class="detail-row">
+                <label>Ngày tạo:</label>
+                <span th:text="${#temporals.format(user.createdAt, 'dd/MM/yyyy HH:mm')}"></span>
+            </div>
+            <div class="detail-row" th:if="${user.updatedAt}">
+                <label>Cập nhật lần cuối:</label>
+                <span th:text="${#temporals.format(user.updatedAt, 'dd/MM/yyyy HH:mm')}"></span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a th:href="@{/users}" class="btn-secondary">← Quay lại danh sách</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div th:replace="~{layout/base :: footer}"></div>
+</body>
+</html>

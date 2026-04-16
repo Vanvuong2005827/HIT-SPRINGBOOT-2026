@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Users</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{layout/base :: header}"></div>
+
+    <main>
+        <h1>Quản lý User</h1>
+
+        <!-- Thông báo thành công -->
+        <div th:if="${successMessage}" class="alert-success">
+            <p th:text="${successMessage}"></p>
+        </div>
+
+        <!-- Thanh công cụ: Search + Nút tạo mới -->
+        <div class="toolbar">
+            <form th:action="@{/users}" method="get" class="search-form">
+                <input type="text" name="search" th:value="${search}"
+                       placeholder="Tìm kiếm theo tên...">
+                <button type="submit" class="btn-primary">Tìm</button>
+                <a th:if="${search != null}" th:href="@{/users}" class="btn-secondary">Xóa filter</a>
+            </form>
+            <a th:href="@{/users/new}" class="btn-primary">+ Tạo User Mới</a>
+        </div>
+
+        <!-- Bảng dữ liệu -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- th:each = vòng lặp -->
+                <tr th:each="user : ${users.content}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td>
+                        <span th:if="${user.active}" class="badge-active">Active</span>
+                        <span th:unless="${user.active}" class="badge-inactive">Inactive</span>
+                    </td>
+                    <td>
+                        <a th:href="@{/users/{id}(id=${user.id})}" class="btn-link">Xem</a>
+                    </td>
+                </tr>
+                <!-- Khi không có dữ liệu -->
+                <tr th:if="${users.content.empty}">
+                    <td colspan="5" class="empty-state">Không có dữ liệu</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Phân trang -->
+        <div class="pagination" th:if="${users.totalPages > 1}">
+            <a th:if="${!users.first}"
+               th:href="@{/users(page=${currentPage - 1}, search=${search})}">← Trang trước</a>
+            <span th:text="'Trang ' + (${currentPage} + 1) + ' / ' + ${users.totalPages}"></span>
+            <a th:if="${!users.last}"
+               th:href="@{/users(page=${currentPage + 1}, search=${search})}">Trang sau →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div th:replace="~{layout/base :: footer}"></div>
+</body>
+</html>

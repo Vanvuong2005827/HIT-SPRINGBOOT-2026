@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>500 — Lỗi hệ thống</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="~{layout/base :: header}"></div>
+    <main>
+        <div class="error-page">
+            <h1>500</h1>
+            <p>Đã xảy ra lỗi hệ thống. Vui lòng thử lại sau.</p>
+            <a th:href="@{/}" class="btn-primary">Về trang chủ</a>
+        </div>
+    </main>
+    <div th:replace="~{layout/base :: footer}"></div>
+</body>
+</html>

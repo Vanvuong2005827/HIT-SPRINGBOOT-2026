@@ -1,0 +1,67 @@
+<svg viewBox="0 0 820 440" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0d0d1a"/>
+    </linearGradient>
+    <marker id="arr9" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#90caf9"/>
+    </marker>
+  </defs>
+  <rect width="820" height="440" fill="url(#bg9)" rx="12"/>
+  <text x="410" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Kien Truc API Hoan Chinh — Full Stack Flow</text>
+
+  <!-- Client Layer -->
+  <rect x="20" y="50" width="780" height="60" rx="8" fill="#7b1fa2" stroke="#ce93d8" stroke-width="1"/>
+  <text x="410" y="73" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">Client Layer</text>
+  <text x="120" y="98" text-anchor="middle" font-size="10" fill="#e1bee7">Browser</text>
+  <text x="290" y="98" text-anchor="middle" font-size="10" fill="#e1bee7">Postman</text>
+  <text x="460" y="98" text-anchor="middle" font-size="10" fill="#e1bee7">React/Vue (SPA)</text>
+  <text x="650" y="98" text-anchor="middle" font-size="10" fill="#e1bee7">Mobile App</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="110" x2="410" y2="130" stroke="#90caf9" stroke-width="2" marker-end="url(#arr9)"/>
+
+  <!-- Controller Layer -->
+  <rect x="60" y="135" width="700" height="55" rx="8" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+  <text x="410" y="158" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Controller Layer — @RestController / @Controller</text>
+  <text x="410" y="178" text-anchor="middle" font-size="10" fill="#90caf9">@Valid input | Route request | @RequestMapping | ResponseEntity + ApiResponse</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="190" x2="410" y2="210" stroke="#90caf9" stroke-width="2" marker-end="url(#arr9)"/>
+
+  <!-- Service Layer -->
+  <rect x="100" y="215" width="620" height="55" rx="8" fill="#00695c" stroke="#4db6ac" stroke-width="1.5"/>
+  <text x="410" y="238" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Service Layer — @Service</text>
+  <text x="410" y="258" text-anchor="middle" font-size="10" fill="#b2dfdb">Business Logic | @Transactional | DTO Mapping | Custom Exception</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="270" x2="410" y2="290" stroke="#90caf9" stroke-width="2" marker-end="url(#arr9)"/>
+
+  <!-- Repository Layer -->
+  <rect x="140" y="295" width="540" height="55" rx="8" fill="#e65100" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="410" y="318" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Repository Layer — JpaRepository</text>
+  <text x="410" y="338" text-anchor="middle" font-size="10" fill="#ffe0b2">CRUD | Derived Query | @Query JPQL | Pagination | JOIN FETCH</text>
+
+  <!-- Arrow -->
+  <line x1="410" y1="350" x2="410" y2="370" stroke="#90caf9" stroke-width="2" marker-end="url(#arr9)"/>
+
+  <!-- Database -->
+  <rect x="280" y="375" width="260" height="35" rx="6" fill="#37474f" stroke="#78909c" stroke-width="1.5"/>
+  <text x="410" y="398" text-anchor="middle" font-size="13" font-weight="bold" fill="#cfd8dc">MySQL / PostgreSQL</text>
+
+  <!-- Side annotations -->
+  <text x="25" y="160" font-size="9.5" fill="#ffd54f">Swagger</text>
+  <text x="25" y="175" font-size="9.5" fill="#ffd54f">OpenAPI</text>
+  <rect x="15" y="145" width="40" height="38" rx="4" fill="none" stroke="#ffd54f" stroke-width="1" stroke-dasharray="3"/>
+
+  <text x="770" y="160" font-size="9.5" fill="#ef9a9a">Global</text>
+  <text x="770" y="175" font-size="9.5" fill="#ef9a9a">Exception</text>
+  <rect x="764" y="145" width="45" height="38" rx="4" fill="none" stroke="#ef9a9a" stroke-width="1" stroke-dasharray="3"/>
+
+  <text x="25" y="240" font-size="9.5" fill="#81c784">AOP</text>
+  <text x="25" y="255" font-size="9.5" fill="#81c784">Logging</text>
+  <rect x="15" y="225" width="40" height="38" rx="4" fill="none" stroke="#81c784" stroke-width="1" stroke-dasharray="3"/>
+
+  <text x="410" y="430" text-anchor="middle" font-size="11" fill="#78909c">Buoi 6 tong hop toan bo: RESTful chuan + DTO + Thymeleaf + API hoan chinh theo chuan thuc te</text>
+</svg>

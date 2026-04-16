@@ -1,0 +1,52 @@
+<svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0d0d1a"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="380" fill="url(#bg2)" rx="12"/>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">URL Naming Convention — Chuẩn RESTful</text>
+
+  <!-- Good examples -->
+  <rect x="20" y="55" width="380" height="300" rx="8" fill="#ffffff0a" stroke="#4db6ac" stroke-width="1.5"/>
+  <text x="210" y="78" text-anchor="middle" font-size="14" font-weight="bold" fill="#81c784">ĐÚNG CHUẨN</text>
+
+  <text x="40" y="105" font-size="11" font-weight="bold" fill="#4db6ac">Collection (danh từ số nhiều):</text>
+  <text x="40" y="125" font-size="11" fill="#b2dfdb">GET    /api/v1/users</text>
+  <text x="40" y="142" font-size="11" fill="#b2dfdb">GET    /api/v1/products</text>
+  <text x="40" y="159" font-size="11" fill="#b2dfdb">GET    /api/v1/order-items</text>
+
+  <text x="40" y="185" font-size="11" font-weight="bold" fill="#4db6ac">Single Resource (theo ID):</text>
+  <text x="40" y="205" font-size="11" fill="#b2dfdb">GET    /api/v1/users/42</text>
+  <text x="40" y="222" font-size="11" fill="#b2dfdb">PUT    /api/v1/users/42</text>
+  <text x="40" y="239" font-size="11" fill="#b2dfdb">DELETE /api/v1/products/10</text>
+
+  <text x="40" y="265" font-size="11" font-weight="bold" fill="#4db6ac">Sub-Resource (nested):</text>
+  <text x="40" y="285" font-size="11" fill="#b2dfdb">GET  /api/v1/users/42/orders</text>
+  <text x="40" y="302" font-size="11" fill="#b2dfdb">POST /api/v1/users/42/orders</text>
+
+  <text x="40" y="328" font-size="11" font-weight="bold" fill="#4db6ac">Filter / Search (query params):</text>
+  <text x="40" y="345" font-size="11" fill="#b2dfdb">GET /api/v1/users?role=admin&amp;status=active</text>
+
+  <!-- Bad examples -->
+  <rect x="420" y="55" width="380" height="300" rx="8" fill="#ffffff0a" stroke="#ef5350" stroke-width="1.5"/>
+  <text x="610" y="78" text-anchor="middle" font-size="14" font-weight="bold" fill="#ef9a9a">SAI CHUẨN</text>
+
+  <text x="440" y="105" font-size="11" font-weight="bold" fill="#ef5350">Dùng động từ trong URL:</text>
+  <text x="440" y="125" font-size="11" fill="#ef9a9a">GET  /api/getUsers</text>
+  <text x="440" y="142" font-size="11" fill="#ef9a9a">POST /api/createUser</text>
+  <text x="440" y="159" font-size="11" fill="#ef9a9a">POST /api/deleteUser/42</text>
+
+  <text x="440" y="185" font-size="11" font-weight="bold" fill="#ef5350">Dùng danh từ số ít:</text>
+  <text x="440" y="205" font-size="11" fill="#ef9a9a">GET /api/user</text>
+  <text x="440" y="222" font-size="11" fill="#ef9a9a">GET /api/product</text>
+
+  <text x="440" y="248" font-size="11" font-weight="bold" fill="#ef5350">Dùng UPPER_CASE / camelCase:</text>
+  <text x="440" y="268" font-size="11" fill="#ef9a9a">GET /api/orderItems</text>
+  <text x="440" y="285" font-size="11" fill="#ef9a9a">GET /api/Order_Items</text>
+
+  <text x="440" y="311" font-size="11" font-weight="bold" fill="#ef5350">Trailing slash:</text>
+  <text x="440" y="331" font-size="11" fill="#ef9a9a">GET /api/users/</text>
+  <text x="440" y="345" font-size="9.5" fill="#78909c">(Trailing slash nên loai bo)</text>
+</svg>

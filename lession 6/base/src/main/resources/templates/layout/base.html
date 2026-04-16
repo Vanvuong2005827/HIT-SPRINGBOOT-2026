@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle} ?: 'HIT Spring Boot'">HIT Spring Boot</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Header Fragment -->
+    <header th:fragment="header">
+        <nav>
+            <div class="nav-brand">
+                <a th:href="@{/}">🚀 HIT Spring Boot</a>
+            </div>
+            <div class="nav-links">
+                <a th:href="@{/}">Trang chủ</a>
+                <a th:href="@{/users}">Users</a>
+                <a href="/docs" target="_blank">Swagger API</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Footer Fragment -->
+    <footer th:fragment="footer">
+        <p>HIT Club — Spring Boot 2026 | Buổi 6: RESTful API chuẩn &amp; Thymeleaf</p>
+    </footer>
+</body>
+</html>

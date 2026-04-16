@@ -1,0 +1,94 @@
+<svg viewBox="0 0 820 480" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgP" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0d0d1a"/>
+    </linearGradient>
+    <marker id="arrP" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#90caf9"/>
+    </marker>
+  </defs>
+  <rect width="820" height="480" fill="url(#bgP)" rx="12"/>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">Offset vs Keyset Pagination</text>
+
+  <!-- Offset Pagination -->
+  <rect x="20" y="55" width="380" height="250" rx="8" fill="#b71c1c" stroke="#ef5350" stroke-width="1.5" opacity="0.9"/>
+  <text x="210" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">Offset Pagination</text>
+  <text x="40" y="105" font-size="11" fill="#ffcdd2">SQL: SELECT * FROM users</text>
+  <text x="40" y="123" font-size="11" fill="#ffcdd2">     ORDER BY id LIMIT 10 OFFSET 990</text>
+
+  <!-- Offset diagram -->
+  <rect x="40" y="140" width="340" height="30" rx="4" fill="#ffffff15" stroke="#ffffff22" stroke-width="1"/>
+  <text x="60" y="160" font-size="10" fill="#ef9a9a">1</text>
+  <text x="85" y="160" font-size="10" fill="#ef9a9a">2</text>
+  <text x="110" y="160" font-size="10" fill="#ef9a9a">3</text>
+  <text x="135" y="160" font-size="10" fill="#ef9a9a">...</text>
+  <text x="175" y="160" font-size="10" fill="#ef9a9a">990</text>
+  <rect x="210" y="142" width="100" height="26" rx="3" fill="#4caf50" opacity="0.7"/>
+  <text x="235" y="160" font-size="10" fill="#fff">991-1000</text>
+  <text x="330" y="160" font-size="10" fill="#ef9a9a">...</text>
+
+  <text x="210" y="192" text-anchor="middle" font-size="10" fill="#ffcdd2">↑ Duyet qua 990 dong roi bo di</text>
+
+  <text x="40" y="215" font-size="11" fill="#ef9a9a">Van de 1: O(n) — cang xa cang cham</text>
+  <text x="40" y="233" font-size="11" fill="#ef9a9a">Van de 2: Data drift — record bi lap</text>
+  <text x="40" y="251" font-size="11" fill="#ef9a9a">Van de 3: Khong hop infinite scroll</text>
+
+  <text x="40" y="280" font-size="11" fill="#ffd54f">Phu hop: Admin table, dashboard</text>
+  <text x="40" y="295" font-size="11" fill="#ffd54f">Data: &lt; 100K records</text>
+
+  <!-- Keyset Pagination -->
+  <rect x="420" y="55" width="380" height="250" rx="8" fill="#1b5e20" stroke="#66bb6a" stroke-width="1.5" opacity="0.9"/>
+  <text x="610" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">Keyset Pagination</text>
+  <text x="440" y="105" font-size="11" fill="#c8e6c9">SQL: SELECT * FROM users</text>
+  <text x="440" y="123" font-size="11" fill="#c8e6c9">     WHERE id &gt; 990 ORDER BY id LIMIT 10</text>
+
+  <!-- Keyset diagram -->
+  <rect x="440" y="140" width="340" height="30" rx="4" fill="#ffffff15" stroke="#ffffff22" stroke-width="1"/>
+  <text x="460" y="160" font-size="10" fill="#66bb6a">cursor=990</text>
+  <line x1="540" y1="145" x2="540" y2="167" stroke="#ffd54f" stroke-width="2"/>
+  <rect x="550" y="142" width="100" height="26" rx="3" fill="#4caf50" opacity="0.7"/>
+  <text x="575" y="160" font-size="10" fill="#fff">991-1000</text>
+  <text x="670" y="160" font-size="10" fill="#66bb6a">...</text>
+
+  <text x="610" y="192" text-anchor="middle" font-size="10" fill="#c8e6c9">↑ INDEX nhay thang den id=990</text>
+
+  <text x="440" y="215" font-size="11" fill="#81c784">O(log n) — luon nhanh nho index</text>
+  <text x="440" y="233" font-size="11" fill="#81c784">Khong data drift — cursor co dinh</text>
+  <text x="440" y="251" font-size="11" fill="#81c784">Perfect fit cho infinite scroll</text>
+
+  <text x="440" y="280" font-size="11" fill="#ffd54f">Phu hop: Feed, timeline, mobile app</text>
+  <text x="440" y="295" font-size="11" fill="#ffd54f">Data: bat ky kich thuoc nao</text>
+
+  <!-- Flow diagram -->
+  <rect x="20" y="320" width="780" height="145" rx="8" fill="#ffffff0a" stroke="#ffffff22" stroke-width="1"/>
+  <text x="410" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffd54f">Keyset Flow</text>
+
+  <!-- Step 1 -->
+  <rect x="40" y="360" width="170" height="45" rx="6" fill="#0d47a1" stroke="#42a5f5" stroke-width="1"/>
+  <text x="125" y="380" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Request 1</text>
+  <text x="125" y="395" text-anchor="middle" font-size="9.5" fill="#bbdefb">GET /users?size=5</text>
+
+  <line x1="210" y1="382" x2="240" y2="382" stroke="#90caf9" stroke-width="2" marker-end="url(#arrP)"/>
+
+  <!-- Step 2 -->
+  <rect x="245" y="360" width="170" height="45" rx="6" fill="#0d47a1" stroke="#42a5f5" stroke-width="1"/>
+  <text x="330" y="380" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Response: cursor="5"</text>
+  <text x="330" y="395" text-anchor="middle" font-size="9.5" fill="#bbdefb">[1,2,3,4,5] hasNext=true</text>
+
+  <line x1="415" y1="382" x2="445" y2="382" stroke="#90caf9" stroke-width="2" marker-end="url(#arrP)"/>
+
+  <!-- Step 3 -->
+  <rect x="450" y="360" width="170" height="45" rx="6" fill="#0d47a1" stroke="#42a5f5" stroke-width="1"/>
+  <text x="535" y="380" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Request 2</text>
+  <text x="535" y="395" text-anchor="middle" font-size="9.5" fill="#bbdefb">GET /users?size=5&amp;cursor=5</text>
+
+  <line x1="620" y1="382" x2="650" y2="382" stroke="#90caf9" stroke-width="2" marker-end="url(#arrP)"/>
+
+  <!-- Step 4 -->
+  <rect x="655" y="360" width="130" height="45" rx="6" fill="#0d47a1" stroke="#42a5f5" stroke-width="1"/>
+  <text x="720" y="380" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Response</text>
+  <text x="720" y="395" text-anchor="middle" font-size="9.5" fill="#bbdefb">[6,7,8,9,10]</text>
+
+  <text x="410" y="445" text-anchor="middle" font-size="11" fill="#78909c">Client chi can gui cursor tu response truoc → Server tra tiep tu vi tri do</text>
+</svg>

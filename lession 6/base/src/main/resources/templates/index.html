@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HIT Spring Boot — Buổi 6</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{layout/base :: header}"></div>
+
+    <main>
+        <div class="hero">
+            <h1>🚀 HIT Spring Boot — Buổi 6</h1>
+            <p>RESTful API chuẩn &amp; Thymeleaf Server-Side Rendering</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>👥 Quản lý User</h3>
+                <p>CRUD với Thymeleaf, Keyset Pagination, Search</p>
+                <a th:href="@{/users}" class="btn-primary">Xem Users</a>
+            </div>
+
+            <div class="card">
+                <h3>📦 API Products</h3>
+                <p>JPA Specification — Dynamic filter linh hoạt</p>
+                <a href="/docs" target="_blank" class="btn-primary">Swagger UI</a>
+            </div>
+
+            <div class="card">
+                <h3>📄 API Documentation</h3>
+                <p>Swagger/OpenAPI tự động generate</p>
+                <a href="/docs" target="_blank" class="btn-primary">Mở Docs</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Nội dung buổi 6</h2>
+            <ul>
+                <li>✅ URL Naming Convention chuẩn REST</li>
+                <li>✅ API Versioning — <code>/api/v1/...</code></li>
+                <li>✅ DTO Mapping nâng cao — List vs Detail, Nested DTO</li>
+                <li>✅ Keyset Pagination (Cursor-based)</li>
+                <li>✅ JPA Specification — Dynamic Query Builder</li>
+                <li>✅ Thymeleaf — Server-Side Rendering</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div th:replace="~{layout/base :: footer}"></div>
+</body>
+</html>
