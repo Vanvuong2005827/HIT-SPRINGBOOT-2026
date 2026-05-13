@@ -1,6 +1,5 @@
 package com.example.base.domain.dto.response;
 
-import com.example.base.domain.entity.Role;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,20 +7,12 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserResponseDto {
-  String id;
+public class AdminStatsResponseDto {
+  long totalUsers;
 
-  String username;
+  long totalAdmins;
 
-  String email;
-
-  String firstName;
-
-  String lastName;
-
-  Role role;
-
-  Boolean enabled;
-
+  long totalInvalidatedTokens;
 }

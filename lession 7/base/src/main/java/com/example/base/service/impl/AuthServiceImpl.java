@@ -54,6 +54,7 @@ public class AuthServiceImpl implements AuthService {
   long REFRESH_TOKEN_EXPIRATION;
 
   @Override
+  @Transactional(rollbackFor = Exception.class)
   public LoginResponseDto authentication(LoginRequestDto request) {
     User user = userRepository.findByUsername(request.getUsername())
         .orElseThrow(() -> new VsException(

@@ -7,6 +7,7 @@ import com.example.base.constant.UrlConstant;
 import com.example.base.domain.dto.request.*;
 import com.example.base.domain.dto.response.CommonResponseDto;
 import com.example.base.domain.dto.response.LoginResponseDto;
+import com.example.base.domain.dto.response.SystemInfoResponseDto;
 import com.example.base.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -16,8 +17,11 @@ import lombok.experimental.FieldDefaults;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.time.LocalDateTime;
 
 @RestApiV1
 @Validated
@@ -37,6 +41,17 @@ public class AuthController {
   @PostMapping(UrlConstant.Auth.LOGOUT)
   public ResponseEntity<RestData<CommonResponseDto>> logout(@Valid @RequestBody LogoutRequestDto request) {
     CommonResponseDto response = authService.logout(request);
+    return VsResponseUtil.success(response);
+  }
+
+  @Operation(summary = "Lấy thông tin hệ thống", description = "Dùng để lấy thông tin công khai của hệ thống")
+  @GetMapping(UrlConstant.Auth.GET_SYSTEM_INFO)
+  public ResponseEntity<RestData<SystemInfoResponseDto>> getSystemInfo() {
+    SystemInfoResponseDto response = SystemInfoResponseDto.builder()
+        .version("1.0.0")
+        .serverTime(LocalDateTime.now().toString())
+        .status("UP")
+        .build();
     return VsResponseUtil.success(response);
   }
 

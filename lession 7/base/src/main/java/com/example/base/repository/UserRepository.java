@@ -1,5 +1,6 @@
 package com.example.base.repository;
 
+import com.example.base.domain.entity.Role;
 import com.example.base.domain.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,7 @@ public interface UserRepository extends JpaRepository<User, String> {
   boolean existsUserByEmail(String email);
 
   Optional<User> findByEmail(String email);
+
+  long countByRole(Role role);
 
 }
