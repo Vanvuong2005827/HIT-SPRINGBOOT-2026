@@ -8,6 +8,9 @@ package com.example.base.security;
 import com.example.base.constant.ErrorMessage;
 import com.example.base.repository.InvalidatedTokenRepository;
 import com.nimbusds.jwt.SignedJWT;
+import com.example.base.base.RestData;
+import com.example.base.base.RestStatus;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +19,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -61,18 +65,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       String jwtId = signedJWT.getJWTClaimsSet().getJWTID();
 
       if (invalidatedTokenRepository.existsById(jwtId)) {
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-
-        response.getWriter().write(ErrorMessage.Auth.ERR_TOKEN_INVALIDATED);
-
+        sendErrorResponse(response, HttpServletResponse.SC_UNAUTHORIZED, ErrorMessage.Auth.ERR_TOKEN_INVALIDATED);
         return;
       }
     } catch (ParseException e) {
-
-      response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-
-      response.getWriter().write(ErrorMessage.Auth.ERR_MALFORMED_TOKEN);
-
+      sendErrorResponse(response, HttpServletResponse.SC_BAD_REQUEST, ErrorMessage.Auth.ERR_MALFORMED_TOKEN);
       return;
     }
 
@@ -97,5 +94,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     // [4]. Continue the filter chain
     filterChain.doFilter(request, response);
+  }
+
+  private void sendErrorResponse(HttpServletResponse response, int status, String message) throws IOException {
+    response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+    response.setStatus(status);
+
+    RestData<Object> restData = new RestData<>(RestStatus.ERROR, message, null);
+
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.writeValue(response.getOutputStream(), restData);
   }
 }
