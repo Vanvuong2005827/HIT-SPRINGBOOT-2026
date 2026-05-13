@@ -43,12 +43,15 @@ public class SecurityConfig {
 
   final JwtAuthenticationFilter jwtAuthenticationFilter;
   final RequestLogFilter requestLogFilter;
+  final com.example.base.security.RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
   public SecurityConfig(
       JwtAuthenticationFilter jwtAuthenticationFilter,
-      com.example.base.security.RequestLogFilter requestLogFilter) {
+      com.example.base.security.RequestLogFilter requestLogFilter,
+      com.example.base.security.RestAuthenticationEntryPoint restAuthenticationEntryPoint) {
     this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     this.requestLogFilter = requestLogFilter;
+    this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
   }
 
   // Main method to configure the security filter chain, defining CORS, CSRF,
@@ -80,6 +83,9 @@ public class SecurityConfig {
     http.addFilterBefore(requestLogFilter, UsernamePasswordAuthenticationFilter.class);
     // Add the JWT authentication filter
     http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+    http.exceptionHandling(exception -> exception
+        .authenticationEntryPoint(restAuthenticationEntryPoint));
 
     http.sessionManagement(session -> session
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
