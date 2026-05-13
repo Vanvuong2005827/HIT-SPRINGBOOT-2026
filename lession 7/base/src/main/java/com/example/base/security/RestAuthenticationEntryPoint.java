@@ -4,6 +4,7 @@ package com.example.base.security;
 
 import com.example.base.base.RestData;
 import com.example.base.base.RestStatus;
+import com.example.base.constant.ErrorMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,7 +24,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
     response.setContentType(MediaType.APPLICATION_JSON_VALUE);
     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
-    RestData<Object> restData = new RestData<>(RestStatus.ERROR, "Xác thực không thành công hoặc token hết hạn", null);
+    RestData<Object> restData = new RestData<>(RestStatus.ERROR, ErrorMessage.UNAUTHORIZED_OR_TOKEN_EXPIRED, null);
 
     ObjectMapper mapper = new ObjectMapper();
     mapper.writeValue(response.getOutputStream(), restData);

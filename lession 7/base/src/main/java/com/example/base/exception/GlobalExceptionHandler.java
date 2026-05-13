@@ -2,6 +2,8 @@ package com.example.base.exception;
 
 import com.example.base.base.RestData;
 import com.example.base.base.VsResponseUtil;
+import com.example.base.constant.ErrorMessage;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
@@ -34,7 +36,7 @@ public class GlobalExceptionHandler {
 
   @ExceptionHandler(AccessDeniedException.class)
   public ResponseEntity<RestData<Object>> handleAccessDeniedException(AccessDeniedException ex) {
-    return VsResponseUtil.error(HttpStatus.FORBIDDEN, "Bạn không có quyền truy cập tài nguyên này");
+    return VsResponseUtil.error(HttpStatus.FORBIDDEN, ErrorMessage.FORBIDDEN);
   }
 
   @ExceptionHandler(Exception.class)
