@@ -67,6 +67,10 @@ public class AuthServiceImpl implements AuthService {
       throw new VsException(HttpStatus.UNAUTHORIZED, ErrorMessage.Auth.ERR_INVALID_CREDENTIALS);
     }
 
+    if (!user.getEnabled()) {
+      throw new VsException(HttpStatus.FORBIDDEN, ErrorMessage.User.ERR_USER_DISABLE);
+    }
+
     // [2]. Generate tokens
     String accessToken = jwtProvider.generateToken(user, ACCESS_TOKEN_EXPIRATION);
     String refreshToken = jwtProvider.generateToken(user, REFRESH_TOKEN_EXPIRATION);

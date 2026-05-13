@@ -44,14 +44,17 @@ public class SecurityConfig {
   final JwtAuthenticationFilter jwtAuthenticationFilter;
   final RequestLogFilter requestLogFilter;
   final com.example.base.security.RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+  final com.example.base.security.RestAccessDeniedHandler restAccessDeniedHandler;
 
   public SecurityConfig(
       JwtAuthenticationFilter jwtAuthenticationFilter,
       com.example.base.security.RequestLogFilter requestLogFilter,
-      com.example.base.security.RestAuthenticationEntryPoint restAuthenticationEntryPoint) {
+      com.example.base.security.RestAuthenticationEntryPoint restAuthenticationEntryPoint,
+      com.example.base.security.RestAccessDeniedHandler restAccessDeniedHandler) {
     this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     this.requestLogFilter = requestLogFilter;
     this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
+    this.restAccessDeniedHandler = restAccessDeniedHandler;
   }
 
   // Main method to configure the security filter chain, defining CORS, CSRF,
@@ -85,7 +88,8 @@ public class SecurityConfig {
     http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
     http.exceptionHandling(exception -> exception
-        .authenticationEntryPoint(restAuthenticationEntryPoint));
+        .authenticationEntryPoint(restAuthenticationEntryPoint)
+        .accessDeniedHandler(restAccessDeniedHandler));
 
     http.sessionManagement(session -> session
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));

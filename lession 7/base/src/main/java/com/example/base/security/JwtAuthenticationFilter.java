@@ -80,6 +80,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
       if (jwtProvider.isTokenValid(token, userDetails)) {
+        if (!userDetails.isEnabled()) {
+          sendErrorResponse(response, HttpServletResponse.SC_FORBIDDEN, ErrorMessage.User.ERR_USER_DISABLE);
+          return;
+        }
         log.debug("Token valid for user: {}", username);
 
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,

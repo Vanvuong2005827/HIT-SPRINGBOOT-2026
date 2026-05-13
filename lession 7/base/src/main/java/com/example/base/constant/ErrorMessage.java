@@ -31,6 +31,7 @@ public class ErrorMessage {
     public static final String ERR_USERNAME_EXISTED = "exception.user.username.existed";
     public static final String ERR_EMAIL_EXISTED = "exception.user.email.existed";
     public static final String ERR_OLD_PASSWORD_WRONG = "exception.user.old.password.wrong";
+    public static final String ERR_USER_DISABLE = "exception.user.disabled";
   }
 
   public static class Admin {
