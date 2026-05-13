@@ -24,7 +24,7 @@ public class UrlConstant {
   public static class Admin {
     private static final String PRE_FIX = "/admin";
 
-    public static final String GET_USER = PRE_FIX + "/users/{userId}";
+    public static final String GET_USER = PRE_FIX + "/user/{userId}";
     public static final String CREATE_USER = PRE_FIX + "/create-user";
 
     private Admin() {

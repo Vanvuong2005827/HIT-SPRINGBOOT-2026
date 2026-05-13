@@ -35,6 +35,12 @@ public class UserController {
     return VsResponseUtil.success(response);
   }
 
+  @Operation(summary = "Đổi password", description = "Dùng để người dùng đổi password")
+  @PatchMapping("/change-password")
+  public ResponseEntity<RestData<Void>> changePassword() {
+    return null;
+  }
+
   // //
   // Methods for ADMIN //
   // //
@@ -55,4 +61,24 @@ public class UserController {
     return VsResponseUtil.success(response);
   }
 
+  @Tag(name = "admin-controller")
+  @Operation(summary = "Khóa/Mở khóa user", description = "Dùng để admin khóa hoặc mở khóa một user trong hệ thống")
+  @PatchMapping("/user/{userId}/status")
+  public ResponseEntity<RestData<Void>> toggleUserStatus() {
+    return null;
+  }
+
+  @Tag(name = "admin-controller")
+  @Operation(summary = "Xóa user", description = "Dùng để admin xóa một user khỏi hệ thống")
+  @DeleteMapping("/user/{userId}")
+  public ResponseEntity<RestData<Void>> deleteUser() {
+    return null;
+  }
+
+  @Tag(name = "admin-controller")
+  @Operation(summary = "Thống kê", description = "Dùng để admin thống kê số lượng user và số lượng token đang hoạt động")
+  @GetMapping("/stats")
+  public ResponseEntity<RestData<Void>> getStatistics() {
+    return null;
+  }
 }
