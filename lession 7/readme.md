@@ -66,6 +66,9 @@ Thường dựa trên các thông tin nhận dạng (identifier) và thông tin 
   - UsernamePasswordAuthenticationToken
   - JwtAuthenticationToken
   - PreAuthenticatedAuthenticationToken
+ 
+<img width="1200" height="1487" alt="610c2bdd-9f59-4239-85cf-c4aa40434c46_1200x1487" src="https://github.com/user-attachments/assets/f9c18089-66ba-4673-9754-25b1cfc92880" />
+
 
 ### Ưu và nhược điểm của Spring Security
 - Ưu điểm
